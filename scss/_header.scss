@@ -1,4 +1,16 @@
+.nav {
+    background-color: whitesmoke;
 
+}
+.header_nav-links {
+    font-size: 2rem;
 
+}
 
+.header_nav-shop {
+    border-color: black !important;
+    &:hover {
+        background-color: rgb(213, 74, 248) !important;
+    }
+}
 

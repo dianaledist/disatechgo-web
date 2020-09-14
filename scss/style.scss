@@ -1,9 +1,9 @@
 @import "header";
 @import "footer";
-
-/* @import "variables";
 @import "typography";
-@import "componentes"; */
+@import "variables";
+
+/* @import "componentes"; */
 
 
 *{
@@ -14,7 +14,6 @@
 
 html {
     font-size: 62.5%; 
-    background-color: aqua;
 }
 
 
