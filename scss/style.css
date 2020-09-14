@@ -1,0 +1,15 @@
+/* @import "variables";
+@import "typography";
+@import "componentes"; */
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  background-color: aqua;
+}
+/*# sourceMappingURL=style.css.map */
