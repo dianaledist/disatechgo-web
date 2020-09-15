@@ -3,6 +3,18 @@
   background-color: whitesmoke;
 }
 
+.header_home {
+  height: 90vh;
+  background-image: url("../images/homeintro.jpg");
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
 .header_nav-links {
   font-size: 2rem;
 }
@@ -13,6 +25,45 @@
 
 .header_nav-shop:hover {
   background-color: #d54af8 !important;
+}
+
+footer {
+  background-color: whitesmoke !important;
+}
+
+.footer_li {
+  font-size: 1.5rem;
+}
+
+nav {
+  font-family: 'Montserrat', sans-serif;
+}
+
+h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.5rem !important;
+  font-weight: bold !important;
+}
+
+h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem !important;
+}
+
+h6 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem !important;
+  font-weight: bold !important;
+}
+
+.home_boton {
+  font-size: 1.5rem !important;
+}
+
+.home_pricing {
+  border-radius: 20px 20px 20px 20px;
+  border: 2px solid #0c0758;
+  background-color: #6589ee;
 }
 
 /* @import "componentes"; */

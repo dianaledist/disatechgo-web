@@ -2,9 +2,19 @@
     background-color: whitesmoke;
 
 }
+
+.header_home {
+    height: 90vh;
+    background-image: url('../images/homeintro.jpg');
+
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+
+}
+
 .header_nav-links {
     font-size: 2rem;
-
 }
 
 .header_nav-shop {
