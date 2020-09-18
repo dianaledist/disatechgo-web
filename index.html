@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="scss/style.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-    
 </head>
 <body>
 
@@ -56,6 +55,18 @@
 
 
   </header>
+
+  <div class="indexlogin container text-center">
+  <form action="login.php" method="post">
+    <h1>¿Tenes registro en el sitio</h1>
+    <input type="text" id="inputname" name="inputname1" placeholder="Ingrese su nombre">
+    <input type="number" id="inputedad" name="inputedad1" placeholder="Ingrese su edad">
+    <input type="button" name="enviar" value="Login" onclick="login()" class="btn btn-primary home_boton">
+    <h2 class="bienvenida"></h2>
+  </form>
+  </div>
+
+
   <div class="text-center container-fluid mt-5 mb-5"><h2>Cotizá tu presupuesto en un instante!</h2></div>
 
 

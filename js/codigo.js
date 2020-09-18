@@ -1,3 +1,55 @@
+/* const nombre =document.querySelector("div.indexlogin input[name='inputname']"); */
+
+
+
+function login() {
+    const nombre =document.querySelector('#inputname').value;
+    const edad =document.querySelector('#inputedad').value;
+
+
+    if (!nombre) {
+        alert("debe ingresar un nombre!")
+    } else if (edad<0 || edad>99) {
+        alert("Ingrese edad correcta")
+    } else {
+        localStorage.setItem(nombre,edad);
+    }
+
+    console.log("Hola");
+    console.log(nombre);
+    console.log(edad);
+
+/*     var bienvenida = document.createElement("h2");                 // Create a <p> element
+    bienvenida.innerHTML = `Hola ${nombre}, tienes ${edad}`;                // Insert text
+    document.querySelector('.bienvenida').appendChild(bienvenida);   */
+
+    const bienvenida2=document.querySelector("h2");
+    bienvenida2.textContent= `Hola ${nombre}, tienes ${edad}`;  
+    
+
+}
+
+
+/* const nombre =prompt ("Ingrese su nombre");
+const edad =prompt ("Ingrese su edad");
+
+if (!nombre) {
+    alert("debe ingresar un nombre!")
+} else if (edad<0 || edad>99) {
+    alert("Ingrese edad correcta")
+} else {
+    alert(`Hola ${nombre}, tienes ${edad} años!`)
+    localStorage.setItem(nombre,edad);
+}
+
+var nombre1 = localStorage.getItem(nombre);
+localStorage.removeItem('');
+
+console.log(nombre1); */
+
+
+
+
 
 function Servicios(tipo,precio)
 {
