@@ -1,7 +1,3 @@
-/* const nombre =document.querySelector("div.indexlogin input[name='inputname']"); */
-
-
-
 function login() {
     const nombre =document.querySelector('#inputname').value;
     const edad =document.querySelector('#inputedad').value;
@@ -44,16 +40,16 @@ const serviciosWeb = [
 
 const serviciosBranding = [
     {
-        tipo:"Logo",
-        precio:50,
+        tipo2:"Logo",
+        precio2:50,
     },
     {
-        tipo:"Diseño editorial",
-        precio:300,
+        tipo2:"Diseño editorial",
+        precio2:300,
     },
     {
-        tipo:"Community Manager",
-        precio: 500,
+        tipo2:"Community Manager",
+        precio2: 500,
     },
 ];
 
@@ -63,13 +59,15 @@ console.log(serviciosBranding[1].tipo);
 
 var divServicios = document.querySelector(".container-fluid.home_pricing-web.col-10");
 var divServiciosBranding = document.querySelector(".container-fluid.home_pricing-branding.col-10");
-
+var agregando=document.querySelector(".infoPresupuesto");
 
 console.log(divServicios);
+console.log(typeof serviciosWeb);
 console.log(divServiciosBranding);
+console.log(typeof serviciosBranding);
 
 
-serviciosWeb.forEach (servicio => {                
+serviciosWeb.forEach ((servicio) => {                
     for (let i = 0; i<=serviciosWeb.length; i++)  {
     let contenedorDescripcionWeb=document.createElement('div');
     contenedorDescripcionWeb.classList.add(".container-fluid.home_pricing-web.col-10");
@@ -89,8 +87,8 @@ serviciosBranding.forEach (servicio2 => {
     let contenedorDescripcionBranding=document.createElement('div');
     contenedorDescripcionBranding.classList.add(".container-fluid.home_pricing-branding.col-10");
     contenedorDescripcionBranding.innerHTML=`<div class="home_pricing-opciones d-flex flex-wrap justify-content-center">
-    <div class="home_pricing-opciones-titulo col-6"><h3>${serviciosBranding[j].tipo}</h3></div>
-    <div class="home_pricing-opciones-precio col-2d-lg-block "><h3>${serviciosBranding[j].precio}</h3></div>
+    <div class="home_pricing-opciones-titulo col-6"><h3>${serviciosBranding[j].tipo2}</h3></div>
+    <div class="home_pricing-opciones-precio col-2d-lg-block "><h3>${serviciosBranding[j].precio2}</h3></div>
     <div class="home_pricing-opciones-checkbox col-2"><input type="checkbox" class="form-check-input" id="checkPrecio" onclick="seleccionador()"></div>
     </div>`;
     divServiciosBranding.appendChild(contenedorDescripcionBranding);
@@ -98,6 +96,16 @@ serviciosBranding.forEach (servicio2 => {
     });
 
 
+function Agregar () {
+    serviciosWeb.forEach (servicio => {   
+    for (let j = 0; j<=serviciosWeb.length; j++)  {
+    let agregaSingle=document.createElement('div');
+    agregaSingle.classList.add("infoPresupuesto");
+    agregando.innerHTML=`<h3>${serviciosWeb[0].tipo} cuesta ${serviciosWeb[0].precio}</h3>`;
+    agregando.appendChild(agregaSingle);
+    }
+    });
+}
 
 /* function Servicios(tipo,precio)
 {
