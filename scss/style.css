@@ -60,10 +60,25 @@ h6 {
   font-size: 1.5rem !important;
 }
 
-.home_pricing {
-  border-radius: 20px 20px 20px 20px;
+.home_pricing-web {
+  border-radius: 5px 5px 5px 5px;
   border: 2px solid #0c0758;
   background-color: #6589ee;
+  margin-bottom: 2%;
+}
+
+.home_pricing-branding {
+  border-radius: 5px 5px 5px 5px;
+  border: 2px solid #0c0758;
+  background-color: #6589ee;
+  margin-bottom: 2%;
+}
+
+.home_pricing-comunicacion {
+  border-radius: 5px 5px 5px 5px;
+  border: 2px solid #0c0758;
+  background-color: #6589ee;
+  margin-bottom: 2%;
 }
 
 /* @import "componentes"; */

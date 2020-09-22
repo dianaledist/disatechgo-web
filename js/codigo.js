@@ -19,34 +19,9 @@ function login() {
     console.log(nombre);
     console.log(edad);
 
-/*     var bienvenida = document.createElement("h2");                 // Create a <p> element
-    bienvenida.innerHTML = `Hola ${nombre}, tienes ${edad}`;                // Insert text
-    document.querySelector('.bienvenida').appendChild(bienvenida);   */
-
     const bienvenida2=document.querySelector("h2");
     bienvenida2.textContent= `Hola ${nombre}, tienes ${edad}`;  
-    
-
 }
-
-
-/* const nombre =prompt ("Ingrese su nombre");
-const edad =prompt ("Ingrese su edad");
-
-if (!nombre) {
-    alert("debe ingresar un nombre!")
-} else if (edad<0 || edad>99) {
-    alert("Ingrese edad correcta")
-} else {
-    alert(`Hola ${nombre}, tienes ${edad} años!`)
-    localStorage.setItem(nombre,edad);
-}
-
-var nombre1 = localStorage.getItem(nombre);
-localStorage.removeItem('');
-
-console.log(nombre1); */
-
 
 const serviciosWeb = [
     {
@@ -63,39 +38,81 @@ const serviciosWeb = [
     },
 ];
 
+const serviciosBranding = [
+    {
+        tipo:"Logo",
+        precio:50,
+    },
+    {
+        tipo:"Diseño editorial",
+        precio:300,
+    },
+    {
+        tipo:"Community Manager",
+        precio: 500,
+    },
+];
+
 console.log(serviciosWeb);
-const [{tipo,precio}]=serviciosWeb;
+console.log(serviciosBranding);
+console.log(serviciosBranding[1].tipo);
+
+var divServicios = document.querySelector(".container-fluid.home_pricing-web.col-10");
+var divServiciosBranding = document.querySelector(".container-fluid.home_pricing-branding.col-10");
 
 
-var divServicios = document.querySelector(".container-fluid.home_pricing.col-10");
 console.log(divServicios);
+console.log(divServiciosBranding);
 
 function listadoServicios () {
-    serviciosWeb.forEach ((servicio) => {
-                
+    serviciosWeb.forEach (servicio => {                
     for (let i = 0; i<=serviciosWeb.length; i++)  {
-    let contenedorDescripcion=document.createElement('div');
-    contenedorDescripcion.classList.add(".container-fluid.home_pricing.col-10");
-    contenedorDescripcion.innerHTML=`<div class="home_pricing-opciones d-flex flex-wrap justify-content-center">
+    let contenedorDescripcionWeb=document.createElement('div');
+    contenedorDescripcionWeb.classList.add(".container-fluid.home_pricing-web.col-10");
+    contenedorDescripcionWeb.innerHTML=`<div class="home_pricing-opciones d-flex flex-wrap justify-content-center">
     <div class="home_pricing-opciones-titulo col-6"><h3>${serviciosWeb[i].tipo}</h3></div>
-    <div class="home_pricing-opciones-precio col-2 d-none d-md-none d-lg-block "><h3>${serviciosWeb[i].precio}</h3></div>
-    <div class="home_pricing-opciones-checkbox col-2"><input type="checkbox" class="form-check-input" id="exampleCheck1"></div>
+    <div class="home_pricing-opciones-precio col-2d-lg-block "><h3>${serviciosWeb[i].precio}</h3></div>
+    <div class="home_pricing-opciones-checkbox col-2"><input type="checkbox"  class="form-check-input" id="checkPrecio" onclick="seleccionador()"></div>
     </div>`;
-    divServicios.appendChild(contenedorDescripcion);
+    divServicios.appendChild(contenedorDescripcionWeb);
     }
+    });
+};
 
+  // Get the checkbox
+  var checkBox = document.querySelector("#checkPrecio");
+  // Get the output text
+  var text = document.querySelector("text");
 
-       
+function seleccionador() {
+  
+    // If the checkbox is checked, display the output text
+    if (checkBox.checked == true){
+      text.style.display = "block";
+    } else {
+      text.style.display = "none";
+    }
+  }
 
-     
-
-
-    })
+function listadoServicios2 () {
+    serviciosBranding.forEach (servicio => {                
+    for (let i = 0; i<=serviciosBranding.length; i++)  {
+    let contenedorDescripcionBranding=document.createElement('div');
+    contenedorDescripcionBranding.classList.add(".container-fluid.home_pricing-branding.col-10");
+    contenedorDescripcionBranding.innerHTML=`<div class="home_pricing-opciones d-flex flex-wrap justify-content-center">
+    <div class="home_pricing-opciones-titulo col-6"><h3>${serviciosBranding[i].tipo}</h3></div>
+    <div class="home_pricing-opciones-precio col-2 d-none d-md-none d-lg-block "><h3>${serviciosBranding[i].precio}</h3></div>
+    <div class="home_pricing-opciones-checkbox col-2"><input type="checkbox" class="form-check-input" id="exampleCheck1" onclick="seleccionador()"></div>
+    </div>`;
+    divServiciosBranding.appendChild(contenedorDescripcionBranding);
+    }
+    });
 };
 
 
-
 listadoServicios();
+listadoServicios2();
+
 
 /* function Servicios(tipo,precio)
 {
