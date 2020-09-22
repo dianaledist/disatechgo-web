@@ -36,6 +36,10 @@ const serviciosWeb = [
         tipo:"Programación y funcionalidades",
         precio: 500,
     },
+    {
+        tipo:"Programación y funcionalidades",
+        precio: 500,
+    },
 ];
 
 const serviciosBranding = [
@@ -64,54 +68,35 @@ var divServiciosBranding = document.querySelector(".container-fluid.home_pricing
 console.log(divServicios);
 console.log(divServiciosBranding);
 
-function listadoServicios () {
-    serviciosWeb.forEach (servicio => {                
+
+serviciosWeb.forEach (servicio => {                
     for (let i = 0; i<=serviciosWeb.length; i++)  {
     let contenedorDescripcionWeb=document.createElement('div');
     contenedorDescripcionWeb.classList.add(".container-fluid.home_pricing-web.col-10");
     contenedorDescripcionWeb.innerHTML=`<div class="home_pricing-opciones d-flex flex-wrap justify-content-center">
     <div class="home_pricing-opciones-titulo col-6"><h3>${serviciosWeb[i].tipo}</h3></div>
     <div class="home_pricing-opciones-precio col-2d-lg-block "><h3>${serviciosWeb[i].precio}</h3></div>
-    <div class="home_pricing-opciones-checkbox col-2"><input type="checkbox"  class="form-check-input" id="checkPrecio" onclick="seleccionador()"></div>
+    <div class="home_pricing-opciones-checkbox col-2"><input type="button" name="agregar" value="Agregar" onclick="Agregar()" class="btn btn-primary home_boton"></div>
     </div>`;
     divServicios.appendChild(contenedorDescripcionWeb);
     }
     });
-};
+    
+    
 
-  // Get the checkbox
-  var checkBox = document.querySelector("#checkPrecio");
-  // Get the output text
-  var text = document.querySelector("text");
-
-function seleccionador() {
-  
-    // If the checkbox is checked, display the output text
-    if (checkBox.checked == true){
-      text.style.display = "block";
-    } else {
-      text.style.display = "none";
-    }
-  }
-
-function listadoServicios2 () {
-    serviciosBranding.forEach (servicio => {                
-    for (let i = 0; i<=serviciosBranding.length; i++)  {
+serviciosBranding.forEach (servicio2 => {                
+    for (let j = 0; j<=serviciosBranding.length; j++)  {
     let contenedorDescripcionBranding=document.createElement('div');
     contenedorDescripcionBranding.classList.add(".container-fluid.home_pricing-branding.col-10");
     contenedorDescripcionBranding.innerHTML=`<div class="home_pricing-opciones d-flex flex-wrap justify-content-center">
-    <div class="home_pricing-opciones-titulo col-6"><h3>${serviciosBranding[i].tipo}</h3></div>
-    <div class="home_pricing-opciones-precio col-2 d-none d-md-none d-lg-block "><h3>${serviciosBranding[i].precio}</h3></div>
-    <div class="home_pricing-opciones-checkbox col-2"><input type="checkbox" class="form-check-input" id="exampleCheck1" onclick="seleccionador()"></div>
+    <div class="home_pricing-opciones-titulo col-6"><h3>${serviciosBranding[j].tipo}</h3></div>
+    <div class="home_pricing-opciones-precio col-2d-lg-block "><h3>${serviciosBranding[j].precio}</h3></div>
+    <div class="home_pricing-opciones-checkbox col-2"><input type="checkbox" class="form-check-input" id="checkPrecio" onclick="seleccionador()"></div>
     </div>`;
     divServiciosBranding.appendChild(contenedorDescripcionBranding);
     }
     });
-};
 
-
-listadoServicios();
-listadoServicios2();
 
 
 /* function Servicios(tipo,precio)

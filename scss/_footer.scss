@@ -5,3 +5,17 @@ footer {
 .footer_li {
     font-size: 1.5rem;
 }
+
+
+.btn-flotante {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    padding: .5rem 2rem;
+    background-color: rgb(167, 117, 214);
+    -webkit-box-shadow: 0px 6px 32px -10px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 6px 32px -10px rgba(0,0,0,0.75);
+    box-shadow: 0px 6px 32px -10px rgba(0,0,0,0.75);
+    color: var(--obscuro);
+    text-decoration: none;
+}
