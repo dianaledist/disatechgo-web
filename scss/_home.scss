@@ -1,5 +1,23 @@
-.home_pricing {
-    border-radius: 20px 20px 20px 20px;
+////Hacer una variable para el estilo de la caja
+
+.home_pricing-web {
+    border-radius: 5px 5px 5px 5px;
     border: 2px solid #0c0758;
     background-color: rgb(101, 137, 238);
+    margin-bottom: 2%;
 }
+
+.home_pricing-branding {
+    border-radius: 5px 5px 5px 5px;
+    border: 2px solid #0c0758;
+    background-color: rgb(101, 137, 238);
+    margin-bottom: 2%;
+}
+
+.home_pricing-comunicacion {
+    border-radius: 5px 5px 5px 5px;
+    border: 2px solid #0c0758;
+    background-color: rgb(101, 137, 238);
+    margin-bottom: 2%;
+}
+

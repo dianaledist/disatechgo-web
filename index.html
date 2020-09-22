@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="scss/style.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-    
 </head>
 <body>
 
@@ -42,196 +41,91 @@
                   <a class="nav-link mr-5 header_nav-links" href="#contacto.html">Contacto</a>
                 </li>
             </ul>
-            <div class="btn btn-light bg-transparent header_nav-shop" onclick="openNav()">
-                  <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-shop" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                  <path fill-rule="evenodd" d="M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.371 2.371 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976l2.61-3.045zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0zM1.5 8.5A.5.5 0 0 1 2 9v6h1v-5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v5h6V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5zM4 15h3v-5H4v5zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3zm3 0h-2v3h2v-3z"/>
-                </svg>
-                <div class="header_nav-shopcantidad">
-                        <span class="nav_cantidad" id="cantidadP">0</span>
-                </div>
+
+            <div class="two columns u-pull-right">  
+                <ul>
+                  <li class="submenu">
+                    <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-shop" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" d="M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.371 2.371 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976l2.61-3.045zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0zM1.5 8.5A.5.5 0 0 1 2 9v6h1v-5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v5h6V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5zM4 15h3v-5H4v5zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3zm3 0h-2v3h2v-3z"/>
+                    </svg>
+                    <div class="header_nav-shopcantidad">
+                      <span class="nav_cantidad" id="cantidadP">0</span>
+                    </div>
+                          <div id="carrito">
+                                  
+                                  <table id="lista-carrito" class="u-full-width">
+                                      <thead>
+                                          <tr>
+                                              <th><h5>Imagen</h5></th>
+                                              <th><h5>Nombre</h5></th>
+                                              <th><h5>Precio</h5></th>
+                                              <th><h5>Cantidad</h5></th>
+                                              <th></th>
+                                          </tr>
+                                      </thead>
+                                      <tbody></tbody>
+                                  </table>
+
+                                  <a href="#" id="vaciar-carrito" class="button u-full-width">Vaciar Carrito</a>
+                          </div>
+                  </li>
+              </ul>
+
+              
             </div>
-        </div>
-        <div><img ></div>            
+       
       </nav>
 
 
   </header>
+
+  <div class="indexlogin container text-center">
+  <form action="login.php" method="post">
+    <h1>¿Tenes registro en el sitio</h1>
+    <input type="text" id="inputname" name="inputname1" placeholder="Ingrese su nombre">
+    <input type="number" id="inputedad" name="inputedad1" placeholder="Ingrese su edad">
+    <input type="button" name="enviar" value="Login" onclick="login()" class="btn btn-primary home_boton">
+    <h2 class="bienvenida"></h2>
+  </form>
+  </div>
+
+
   <div class="text-center container-fluid mt-5 mb-5"><h2>Cotizá tu presupuesto en un instante!</h2></div>
 
-
-  <!-- /////////////////////////////Primera caja -->
-  <div class="container-fluid home_pricing col-10">
-      <div class="home_pricing-servicio d-flex justify-content-center">
-        <h2 class="home_pricing-servicio-titulo">Diseño web</h2>    
-      </div>
-
-      <div class="home_pricing-opciones d-flex flex-wrap justify-content-center">
-          <div class="home_pricing-opciones-icono col-2 d-none d-md-none d-lg-block ">
-            <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-display" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path d="M5.75 13.5c.167-.333.25-.833.25-1.5h4c0 .667.083 1.167.25 1.5H11a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1h.75z"/>
-              <path fill-rule="evenodd" d="M13.991 3H2c-.325 0-.502.078-.602.145a.758.758 0 0 0-.254.302A1.46 1.46 0 0 0 1 4.01V10c0 .325.078.502.145.602.07.105.17.188.302.254a1.464 1.464 0 0 0 .538.143L2.01 11H14c.325 0 .502-.078.602-.145a.758.758 0 0 0 .254-.302 1.464 1.464 0 0 0 .143-.538L15 9.99V4c0-.325-.078-.502-.145-.602a.757.757 0 0 0-.302-.254A1.46 1.46 0 0 0 13.99 3zM14 2H2C0 2 0 4 0 4v6c0 2 2 2 2 2h12c2 0 2-2 2-2V4c0-2-2-2-2-2z"/>
-            </svg>
-          </div>
-          <div class="home_pricing-opciones-titulo col-6"><h3>Diseño con plantillas</h3></div>
-          <div class="home_pricing-opciones-precio col-2 d-none d-md-none d-lg-block "><h3>$ 400 </h3></div>
-          <div class="home_pricing-opciones-checkbox col-2"><input type="checkbox" class="form-check-input" id="exampleCheck1"></div>
-      </div>
-
-      <div class="home_pricing-opciones d-flex flex-wrap justify-content-center">
-        <div class="home_pricing-opciones-icono col-2 d-none d-md-none d-lg-block ">
-          <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-display" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path d="M5.75 13.5c.167-.333.25-.833.25-1.5h4c0 .667.083 1.167.25 1.5H11a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1h.75z"/>
-            <path fill-rule="evenodd" d="M13.991 3H2c-.325 0-.502.078-.602.145a.758.758 0 0 0-.254.302A1.46 1.46 0 0 0 1 4.01V10c0 .325.078.502.145.602.07.105.17.188.302.254a1.464 1.464 0 0 0 .538.143L2.01 11H14c.325 0 .502-.078.602-.145a.758.758 0 0 0 .254-.302 1.464 1.464 0 0 0 .143-.538L15 9.99V4c0-.325-.078-.502-.145-.602a.757.757 0 0 0-.302-.254A1.46 1.46 0 0 0 13.99 3zM14 2H2C0 2 0 4 0 4v6c0 2 2 2 2 2h12c2 0 2-2 2-2V4c0-2-2-2-2-2z"/>
-          </svg>
-        </div>
-        <div class="home_pricing-opciones-titulo col-6"><h3>Diseño personalizado</h3></div>
-        <div class="home_pricing-opciones-precio col-2 d-none d-md-none d-lg-block "><h3>$ 900 </h3></div>
-        <div class="home_pricing-opciones-checkbox col-2"><input type="checkbox" class="form-check-input" id="exampleCheck1"></div>
+  <div class="container-fluid home_pricing-web col-10">
+    <div class="home_pricing-servicio d-flex justify-content-center">
+      <h2 class="home_pricing-servicio-titulo">Diseño web</h2>    
     </div>
-
-    <div class="home_pricing-opciones d-flex flex-wrap justify-content-center">
-      <div class="home_pricing-opciones-icono col-2 d-none d-md-none d-lg-block ">
-        <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-display" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-          <path d="M5.75 13.5c.167-.333.25-.833.25-1.5h4c0 .667.083 1.167.25 1.5H11a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1h.75z"/>
-          <path fill-rule="evenodd" d="M13.991 3H2c-.325 0-.502.078-.602.145a.758.758 0 0 0-.254.302A1.46 1.46 0 0 0 1 4.01V10c0 .325.078.502.145.602.07.105.17.188.302.254a1.464 1.464 0 0 0 .538.143L2.01 11H14c.325 0 .502-.078.602-.145a.758.758 0 0 0 .254-.302 1.464 1.464 0 0 0 .143-.538L15 9.99V4c0-.325-.078-.502-.145-.602a.757.757 0 0 0-.302-.254A1.46 1.46 0 0 0 13.99 3zM14 2H2C0 2 0 4 0 4v6c0 2 2 2 2 2h12c2 0 2-2 2-2V4c0-2-2-2-2-2z"/>
-        </svg>
-      </div>
-      <div class="home_pricing-opciones-titulo col-6"><h3>Programación y funcionalidades</h3></div>
-      <div class="home_pricing-opciones-precio col-2 d-none d-md-none d-lg-block "><h3>$ 500 </h3></div>
-      <div class="home_pricing-opciones-checkbox col-2"><input type="checkbox" class="form-check-input" id="exampleCheck1"></div>
   </div>
-  
-  </div>
-  <br>
 
-    <!-- /////////////////////////////Primera caja -->
-    <div class="container-fluid home_pricing col-10">
-      <div class="home_pricing-servicio d-flex justify-content-center">
-        <h2 class="home_pricing-servicio-titulo">Branding</h2>    
-      </div>
-
-      <div class="home_pricing-opciones d-flex flex-wrap justify-content-center">
-          <div class="home_pricing-opciones-icono col-2 d-none d-md-none d-lg-block ">
-            <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-display" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path d="M5.75 13.5c.167-.333.25-.833.25-1.5h4c0 .667.083 1.167.25 1.5H11a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1h.75z"/>
-              <path fill-rule="evenodd" d="M13.991 3H2c-.325 0-.502.078-.602.145a.758.758 0 0 0-.254.302A1.46 1.46 0 0 0 1 4.01V10c0 .325.078.502.145.602.07.105.17.188.302.254a1.464 1.464 0 0 0 .538.143L2.01 11H14c.325 0 .502-.078.602-.145a.758.758 0 0 0 .254-.302 1.464 1.464 0 0 0 .143-.538L15 9.99V4c0-.325-.078-.502-.145-.602a.757.757 0 0 0-.302-.254A1.46 1.46 0 0 0 13.99 3zM14 2H2C0 2 0 4 0 4v6c0 2 2 2 2 2h12c2 0 2-2 2-2V4c0-2-2-2-2-2z"/>
-            </svg>
-          </div>
-          <div class="home_pricing-opciones-titulo col-6"><h3>Logo</h3></div>
-          <div class="home_pricing-opciones-precio col-2 d-none d-md-none d-lg-block "><h3>$ 300 </h3></div>
-          <div class="home_pricing-opciones-checkbox col-2"><input type="checkbox" class="form-check-input" id="exampleCheck1"></div>
-      </div>
-
-      <div class="home_pricing-opciones d-flex flex-wrap justify-content-center">
-        <div class="home_pricing-opciones-icono col-2 d-none d-md-none d-lg-block ">
-          <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-display" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path d="M5.75 13.5c.167-.333.25-.833.25-1.5h4c0 .667.083 1.167.25 1.5H11a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1h.75z"/>
-            <path fill-rule="evenodd" d="M13.991 3H2c-.325 0-.502.078-.602.145a.758.758 0 0 0-.254.302A1.46 1.46 0 0 0 1 4.01V10c0 .325.078.502.145.602.07.105.17.188.302.254a1.464 1.464 0 0 0 .538.143L2.01 11H14c.325 0 .502-.078.602-.145a.758.758 0 0 0 .254-.302 1.464 1.464 0 0 0 .143-.538L15 9.99V4c0-.325-.078-.502-.145-.602a.757.757 0 0 0-.302-.254A1.46 1.46 0 0 0 13.99 3zM14 2H2C0 2 0 4 0 4v6c0 2 2 2 2 2h12c2 0 2-2 2-2V4c0-2-2-2-2-2z"/>
-          </svg>
-        </div>
-        <div class="home_pricing-opciones-titulo col-6"><h3>Papelería y tarjetas</h3></div>
-        <div class="home_pricing-opciones-precio col-2 d-none d-md-none d-lg-block "><h3>$ 500 </h3></div>
-        <div class="home_pricing-opciones-checkbox col-2"><input type="checkbox" class="form-check-input" id="exampleCheck1"></div>
+  <div class="container-fluid home_pricing-branding col-10">
+    <div class="home_pricing-servicio2 d-flex justify-content-center">
+      <h2 class="home_pricing-servicio-titulo">Branding</h2>    
     </div>
-
-    <div class="home_pricing-opciones d-flex flex-wrap justify-content-center">
-      <div class="home_pricing-opciones-icono col-2 d-none d-md-none d-lg-block ">
-        <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-display" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-          <path d="M5.75 13.5c.167-.333.25-.833.25-1.5h4c0 .667.083 1.167.25 1.5H11a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1h.75z"/>
-          <path fill-rule="evenodd" d="M13.991 3H2c-.325 0-.502.078-.602.145a.758.758 0 0 0-.254.302A1.46 1.46 0 0 0 1 4.01V10c0 .325.078.502.145.602.07.105.17.188.302.254a1.464 1.464 0 0 0 .538.143L2.01 11H14c.325 0 .502-.078.602-.145a.758.758 0 0 0 .254-.302 1.464 1.464 0 0 0 .143-.538L15 9.99V4c0-.325-.078-.502-.145-.602a.757.757 0 0 0-.302-.254A1.46 1.46 0 0 0 13.99 3zM14 2H2C0 2 0 4 0 4v6c0 2 2 2 2 2h12c2 0 2-2 2-2V4c0-2-2-2-2-2z"/>
-        </svg>
-      </div>
-      <div class="home_pricing-opciones-titulo col-6"><h3>Diseño editorial</h3></div>
-      <div class="home_pricing-opciones-precio col-2 d-none d-md-none d-lg-block "><h3>$ 400 </h3></div>
-      <div class="home_pricing-opciones-checkbox col-2"><input type="checkbox" class="form-check-input" id="exampleCheck1"></div>
   </div>
-  
-  </div>
-  <br>
 
-    <!-- /////////////////////////////Primera caja -->
-    <div class="container-fluid home_pricing col-10">
-      <div class="home_pricing-servicio d-flex justify-content-center">
-        <h2 class="home_pricing-servicio-titulo">Comunicación y marketing</h2>    
-      </div>
-
-      <div class="home_pricing-opciones d-flex flex-wrap justify-content-center">
-          <div class="home_pricing-opciones-icono col-2 d-none d-md-none d-lg-block ">
-            <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-display" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path d="M5.75 13.5c.167-.333.25-.833.25-1.5h4c0 .667.083 1.167.25 1.5H11a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1h.75z"/>
-              <path fill-rule="evenodd" d="M13.991 3H2c-.325 0-.502.078-.602.145a.758.758 0 0 0-.254.302A1.46 1.46 0 0 0 1 4.01V10c0 .325.078.502.145.602.07.105.17.188.302.254a1.464 1.464 0 0 0 .538.143L2.01 11H14c.325 0 .502-.078.602-.145a.758.758 0 0 0 .254-.302 1.464 1.464 0 0 0 .143-.538L15 9.99V4c0-.325-.078-.502-.145-.602a.757.757 0 0 0-.302-.254A1.46 1.46 0 0 0 13.99 3zM14 2H2C0 2 0 4 0 4v6c0 2 2 2 2 2h12c2 0 2-2 2-2V4c0-2-2-2-2-2z"/>
-            </svg>
-          </div>
-          <div class="home_pricing-opciones-titulo col-6"><h3>Contenido creativo para redes (3 post x semana)</h3></div>
-          <div class="home_pricing-opciones-precio col-2 d-none d-md-none d-lg-block "><h3>$ 600 </h3></div>
-          <div class="home_pricing-opciones-checkbox col-2"><input type="checkbox" class="form-check-input" id="exampleCheck1"></div>
-      </div>
-
-      <div class="home_pricing-opciones d-flex flex-wrap justify-content-center">
-        <div class="home_pricing-opciones-icono col-2 d-none d-md-none d-lg-block ">
-          <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-display" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path d="M5.75 13.5c.167-.333.25-.833.25-1.5h4c0 .667.083 1.167.25 1.5H11a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1h.75z"/>
-            <path fill-rule="evenodd" d="M13.991 3H2c-.325 0-.502.078-.602.145a.758.758 0 0 0-.254.302A1.46 1.46 0 0 0 1 4.01V10c0 .325.078.502.145.602.07.105.17.188.302.254a1.464 1.464 0 0 0 .538.143L2.01 11H14c.325 0 .502-.078.602-.145a.758.758 0 0 0 .254-.302 1.464 1.464 0 0 0 .143-.538L15 9.99V4c0-.325-.078-.502-.145-.602a.757.757 0 0 0-.302-.254A1.46 1.46 0 0 0 13.99 3zM14 2H2C0 2 0 4 0 4v6c0 2 2 2 2 2h12c2 0 2-2 2-2V4c0-2-2-2-2-2z"/>
-          </svg>
-        </div>
-        <div class="home_pricing-opciones-titulo col-6"><h3>Community Manager</h3></div>
-        <div class="home_pricing-opciones-precio col-2 d-none d-md-none d-lg-block "><h3>$ 500 </h3></div>
-        <div class="home_pricing-opciones-checkbox col-2"><input type="checkbox" class="form-check-input" id="exampleCheck1"></div>
+  <div class="container-fluid home_pricing-comunicacion col-10">
+    <div class="home_pricing-servicio3 d-flex justify-content-center">
+      <h2 class="home_pricing-servicio-titulo">Comunicación y marketing</h2>    
     </div>
-
-    <div class="home_pricing-opciones d-flex flex-wrap justify-content-center">
-      <div class="home_pricing-opciones-icono col-2 d-none d-md-none d-lg-block ">
-        <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-display" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-          <path d="M5.75 13.5c.167-.333.25-.833.25-1.5h4c0 .667.083 1.167.25 1.5H11a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1h.75z"/>
-          <path fill-rule="evenodd" d="M13.991 3H2c-.325 0-.502.078-.602.145a.758.758 0 0 0-.254.302A1.46 1.46 0 0 0 1 4.01V10c0 .325.078.502.145.602.07.105.17.188.302.254a1.464 1.464 0 0 0 .538.143L2.01 11H14c.325 0 .502-.078.602-.145a.758.758 0 0 0 .254-.302 1.464 1.464 0 0 0 .143-.538L15 9.99V4c0-.325-.078-.502-.145-.602a.757.757 0 0 0-.302-.254A1.46 1.46 0 0 0 13.99 3zM14 2H2C0 2 0 4 0 4v6c0 2 2 2 2 2h12c2 0 2-2 2-2V4c0-2-2-2-2-2z"/>
-        </svg>
-      </div>
-      <div class="home_pricing-opciones-titulo col-6"><h3>Redacción y corrección de textos</h3></div>
-      <div class="home_pricing-opciones-precio col-2 d-none d-md-none d-lg-block "><h3>$ 500 </h3></div>
-      <div class="home_pricing-opciones-checkbox col-2"><input type="checkbox" class="form-check-input" id="exampleCheck1"></div>
   </div>
 
-  <div class="home_pricing-opciones d-flex flex-wrap justify-content-center">
-    <div class="home_pricing-opciones-icono col-2 d-none d-md-none d-lg-block ">
-      <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-display" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-        <path d="M5.75 13.5c.167-.333.25-.833.25-1.5h4c0 .667.083 1.167.25 1.5H11a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1h.75z"/>
-        <path fill-rule="evenodd" d="M13.991 3H2c-.325 0-.502.078-.602.145a.758.758 0 0 0-.254.302A1.46 1.46 0 0 0 1 4.01V10c0 .325.078.502.145.602.07.105.17.188.302.254a1.464 1.464 0 0 0 .538.143L2.01 11H14c.325 0 .502-.078.602-.145a.758.758 0 0 0 .254-.302 1.464 1.464 0 0 0 .143-.538L15 9.99V4c0-.325-.078-.502-.145-.602a.757.757 0 0 0-.302-.254A1.46 1.46 0 0 0 13.99 3zM14 2H2C0 2 0 4 0 4v6c0 2 2 2 2 2h12c2 0 2-2 2-2V4c0-2-2-2-2-2z"/>
-      </svg>
-    </div>
-    <div class="home_pricing-opciones-titulo col-6"><h3>Diseño e-mail marketing</h3></div>
-    <div class="home_pricing-opciones-precio col-2 d-none d-md-none d-lg-block "><h3>$ 500 </h3></div>
-    <div class="home_pricing-opciones-checkbox col-2"><input type="checkbox" class="form-check-input" id="exampleCheck1"></div>
-</div>
-
-<div class="home_pricing-opciones d-flex flex-wrap justify-content-center">
-  <div class="home_pricing-opciones-icono col-2 d-none d-md-none d-lg-block ">
-    <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-display" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-      <path d="M5.75 13.5c.167-.333.25-.833.25-1.5h4c0 .667.083 1.167.25 1.5H11a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1h.75z"/>
-      <path fill-rule="evenodd" d="M13.991 3H2c-.325 0-.502.078-.602.145a.758.758 0 0 0-.254.302A1.46 1.46 0 0 0 1 4.01V10c0 .325.078.502.145.602.07.105.17.188.302.254a1.464 1.464 0 0 0 .538.143L2.01 11H14c.325 0 .502-.078.602-.145a.758.758 0 0 0 .254-.302 1.464 1.464 0 0 0 .143-.538L15 9.99V4c0-.325-.078-.502-.145-.602a.757.757 0 0 0-.302-.254A1.46 1.46 0 0 0 13.99 3zM14 2H2C0 2 0 4 0 4v6c0 2 2 2 2 2h12c2 0 2-2 2-2V4c0-2-2-2-2-2z"/>
-    </svg>
+  <div class="infoPresupuesto container text-center">
+  <h2 class="container text-center" style="display:none">El presupuesto es: </h2>
   </div>
-  <div class="home_pricing-opciones-titulo col-6"><h3>SEO orgánico para potenciar el sitio</h3></div>
-  <div class="home_pricing-opciones-precio col-2 d-none d-md-none d-lg-block "><h3>$ 400 </h3></div>
-  <div class="home_pricing-opciones-checkbox col-2"><input type="checkbox" class="form-check-input" id="exampleCheck1"></div>
-</div>
-  
-  </div>
-  <br>
 
-
-  <div class="text-center mb-5">
+<!--   <div class="text-center mb-5">
   <input type="button" name="enviar" value="Calcular" onclick="Calcular()" class="btn btn-primary home_boton">
   </div>
-
+ -->
 
   <div class="home_preciototal"></div>
   
 
 
-
-  <footer class="footer pt-4">
+  <footer id="footer" class="footer pt-4">
     <!-- Footer Elements -->
-    <div class="container">
+    <div class="container contenedor">
       <!-- Social buttons -->
       <ul class="list-unstyled list-inline text-center">
         <li class="list-inline-item footer_li">
@@ -266,8 +160,10 @@
       <p>Diseñado por <a href="https://www.linkedin.com/in/dianadistefano/" class="enlaces_footer">Diana Di Stefano</a> by <a href="https://disatechgo.com/" class="enlaces_footer">disatechgo</a></p>
   </div>
 </footer>
+<a href="#footer" class="btn-flotante"><h4>Contacto</h4></a>
 
-      
+
+
     <script defer src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
