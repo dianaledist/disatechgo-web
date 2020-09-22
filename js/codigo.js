@@ -9,14 +9,13 @@ function login() {
         alert("Ingrese edad correcta")
     } else {
         localStorage.setItem(nombre,edad);
+        const bienvenida2=document.querySelector("h2");
+        bienvenida2.textContent= `Hola ${nombre}, tienes ${edad}`;  
     }
 
     console.log("Hola");
     console.log(nombre);
     console.log(edad);
-
-    const bienvenida2=document.querySelector("h2");
-    bienvenida2.textContent= `Hola ${nombre}, tienes ${edad}`;  
 }
 
 const serviciosWeb = [
@@ -53,9 +52,27 @@ const serviciosBranding = [
     },
 ];
 
+const serviciosComunicacion = [
+    {
+        tipo3:"Community Manager",
+        precio3:50,
+    },
+    {
+        tipo3:"Diseño e-mail marketing",
+        precio3:300,
+    },
+    {
+        tipo3:"SEO orgánico para potenciar el sitio",
+        precio3: 500,
+    },
+];
+
+
+
 console.log(serviciosWeb);
 console.log(serviciosBranding);
-console.log(serviciosBranding[1].tipo);
+console.log(serviciosBranding[1].tipo2);
+console.log(serviciosComunicacion);
 
 var divServicios = document.querySelector(".container-fluid.home_pricing-web.col-10");
 var divServiciosBranding = document.querySelector(".container-fluid.home_pricing-branding.col-10");
