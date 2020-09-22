@@ -112,13 +112,12 @@ serviciosBranding.forEach (servicio2 => {
     }
     });
 
-
 function Agregar () {
     serviciosWeb.forEach (servicio => {   
     for (let j = 0; j<=serviciosWeb.length; j++)  {
     let agregaSingle=document.createElement('div');
     agregaSingle.classList.add("infoPresupuesto");
-    agregando.innerHTML=`<h3>${serviciosWeb[0].tipo} cuesta ${serviciosWeb[0].precio}</h3>`;
+    agregando.innerHTML=`<h3>${serviciosWeb[0].tipo} cuesta: ${serviciosWeb[0].precio}</h3>`;
     agregando.appendChild(agregaSingle);
     }
     });
