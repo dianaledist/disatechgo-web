@@ -180,3 +180,39 @@ var nombre1 = localStorage.getItem(nombre);
 localStorage.removeItem('');
 
 console.log(nombre1); */
+
+
+
+
+
+
+/* const serviciosBranding = [
+    {
+        tipo2:"Logo",
+        precio2:50,
+    },
+    {
+        tipo2:"Diseño editorial",
+        precio2:300,
+    },
+    {
+        tipo2:"Community Manager",
+        precio2: 500,
+    },
+    
+];
+
+const serviciosComunicacion = [
+    {
+        tipo3:"Community Manager",
+        precio3:50,
+    },
+    {
+        tipo3:"Diseño e-mail marketing",
+        precio3:300,
+    },
+    {
+        tipo3:"SEO orgánico para potenciar el sitio",
+        precio3: 500,
+    },
+]; */

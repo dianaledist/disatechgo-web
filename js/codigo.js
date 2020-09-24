@@ -32,53 +32,49 @@ const serviciosWeb = [
         precio: 500,
     },
     {
-        tipo:"Programación y funcionalidades",
+        tipo:"Logo",
+        precio:100,
+    },
+    {
+        tipo:"Diseño editorial",
+        precio:300,
+    },
+    {
+        tipo:"Community Manager",
+        precio:100,
+    },
+    {
+        tipo:"Diseño e-mail marketing",
+        precio:300,
+    },
+    {
+        tipo:"SEO orgánico para potenciar el sitio",
         precio: 500,
     },
 ];
 
-const serviciosBranding = [
-    {
-        tipo2:"Logo",
-        precio2:50,
-    },
-    {
-        tipo2:"Diseño editorial",
-        precio2:300,
-    },
-    {
-        tipo2:"Community Manager",
-        precio2: 500,
-    },
-];
-
-const serviciosComunicacion = [
-    {
-        tipo3:"Community Manager",
-        precio3:50,
-    },
-    {
-        tipo3:"Diseño e-mail marketing",
-        precio3:300,
-    },
-    {
-        tipo3:"SEO orgánico para potenciar el sitio",
-        precio3: 500,
-    },
-];
 
 
 
 console.log(serviciosWeb);
-console.log(serviciosBranding);
+/* console.log(serviciosBranding);
 console.log(serviciosBranding[1].tipo2);
 console.log(serviciosComunicacion);
-
-var divServicios = document.querySelector(".container-fluid.home_pricing-web.col-10");
+ */
+/* var divServicios = document.querySelector(".container.home_pricing-web");
 var divServiciosBranding = document.querySelector(".container-fluid.home_pricing-branding.col-10");
 var agregando=document.querySelector(".infoPresupuesto");
+ */
+const carrito=document.querySelector('#carrito');
+const contenedorCarrito=document.querySelector('#lista-carrito tbody');
+const vaciarCarritobtn=document.querySelector('#vaciar-carrito');
+const listaCursos=document.querySelector('#lista-cursos');
 
-console.log(divServicios);
+let articulosCarrito=[];
+
+
+
+/* console.log(divServicios);
 console.log(typeof serviciosWeb);
 console.log(divServiciosBranding);
 console.log(typeof serviciosBranding);
@@ -87,19 +83,84 @@ console.log(typeof serviciosBranding);
 serviciosWeb.forEach ((servicio) => {                
     for (let i = 0; i<=serviciosWeb.length; i++)  {
     let contenedorDescripcionWeb=document.createElement('div');
-    contenedorDescripcionWeb.classList.add(".container-fluid.home_pricing-web.col-10");
-    contenedorDescripcionWeb.innerHTML=`<div class="home_pricing-opciones d-flex flex-wrap justify-content-center">
-    <div class="home_pricing-opciones-titulo col-6"><h3>${serviciosWeb[i].tipo}</h3></div>
-    <div class="home_pricing-opciones-precio col-2d-lg-block "><h3>${serviciosWeb[i].precio}</h3></div>
-    <div class="home_pricing-opciones-checkbox col-2"><input type="button" name="agregar" value="Agregar" onclick="Agregar()" class="btn btn-primary home_boton"></div>
-    </div>`;
-    divServicios.appendChild(contenedorDescripcionWeb);
-    }
-    });
-    
-    
+    contenedorDescripcionWeb.classList.add(".container.home_pricing-web");
+    contenedorDescripcionWeb.innerHTML=`<div class="home_pricing-opciones d-flex flex-wrap justify-content-center p-2">
+    <div class="home_pricing-opciones-titulo col-8"><h3>${serviciosWeb[i].tipo}</h3></div>
+    <div class="home_pricing-opciones-precio col-4d-lg-block"><span><h3>${serviciosWeb[i].precio}</h3></span></div>
+    <a href="#" class="u-full-width btn-primary btn input agregar-carrito" data-id="${i}"><h5>Agregar Al Carrito</h5></a></div>`;
 
-serviciosBranding.forEach (servicio2 => {                
+    divServicios.appendChild(contenedorDescripcionWeb);
+    cargarEventListeners();
+    }
+}); */
+
+
+cargarEventListeners ();
+function cargarEventListeners(){
+    listaCursos.addEventListener('click',agregarCarrito);
+}
+
+function agregarCarrito(e){
+
+    if(e.target.classList.contains('agregar-carrito')){
+        const servicioSeleccionado=e.target.parentElement.parentElement;
+/*         console.log(cursoSeleccionado);
+
+        console.log(e.target.parentElement.parentElement);
+        console.log('Agregando al carrito...') */
+
+        leerDatosServicio(servicioSeleccionado);
+    }    
+}
+
+function leerDatosServicio(servicio) {
+/*     console.log(curso); */
+
+    const infoServicio={
+        titulo:servicio.querySelector('h4').textContent,
+        precio:servicio.querySelector('.precio span').textContent,
+        id: servicio.querySelector('a').getAttribute('data-id'),
+        cantidad:1,
+    }
+/*     console.log(infoCurso); */
+    articulosCarrito=[...articulosCarrito, infoServicio];
+
+
+    carritoHTML();
+}
+
+function carritoHTML(){
+
+    limpiarHTML();
+
+    articulosCarrito.forEach( servicio => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+        <td>
+        ${servicio.titulo}
+        </td>
+        `;
+
+        contenedorCarrito.appendChild(row);
+    });
+    console.log(articulosCarrito);
+}
+
+function limpiarHTML() {
+    // Forma lenta
+    // contenedorCarrito.innerHTML = '';
+
+
+    while(contenedorCarrito.firstChild) {
+        contenedorCarrito.removeChild(contenedorCarrito.firstChild)
+    }
+}
+
+
+
+
+
+/* serviciosBranding.forEach (servicio2 => {                
     for (let j = 0; j<=serviciosBranding.length; j++)  {
     let contenedorDescripcionBranding=document.createElement('div');
     contenedorDescripcionBranding.classList.add(".container-fluid.home_pricing-branding.col-10");
@@ -110,9 +171,9 @@ serviciosBranding.forEach (servicio2 => {
     </div>`;
     divServiciosBranding.appendChild(contenedorDescripcionBranding);
     }
-    });
+    }); */
 
-function Agregar () {
+/* function Agregar () {
     serviciosWeb.forEach (servicio => {   
     for (let j = 0; j<=serviciosWeb.length; j++)  {
     let agregaSingle=document.createElement('div');
@@ -121,7 +182,7 @@ function Agregar () {
     agregando.appendChild(agregaSingle);
     }
     });
-}
+} */
 
 /* function Servicios(tipo,precio)
 {

@@ -24,19 +24,18 @@
     }
 }
 
-
-
 ul {
     list-style: none;
 }
+
 .submenu {
     position: relative;
 }
+
 .submenu #carrito{
     display: none;
 }
 .submenu:hover #carrito{
-    
     display: block;
     position: absolute;
     right:0;
@@ -45,6 +44,18 @@ ul {
     z-index: 1;
     background-color: white;
     padding: 20px;
-    min-height: 100vh;
+    min-height: 400px;
     min-width: 300px;
 }
+
+.u-full-width {
+    width: 100%;
+    box-sizing: border-box; }
+  .u-max-full-width {
+    max-width: 100%;
+    box-sizing: border-box; }
+  .u-pull-right {
+    float: right; }
+  .u-pull-left {
+    float: left; }
+  

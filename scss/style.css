@@ -47,8 +47,28 @@ ul {
   z-index: 1;
   background-color: white;
   padding: 20px;
-  min-height: 100vh;
+  min-height: 400px;
   min-width: 300px;
+}
+
+.u-full-width {
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.u-max-full-width {
+  max-width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.u-pull-right {
+  float: right;
+}
+
+.u-pull-left {
+  float: left;
 }
 
 footer {
@@ -67,7 +87,6 @@ footer {
   background-color: #a775d6;
   -webkit-box-shadow: 0px 6px 32px -10px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 6px 32px -10px rgba(0, 0, 0, 0.75);
-  color: var(--obscuro);
   text-decoration: none;
 }
 
@@ -96,28 +115,120 @@ h6 {
   font-size: 1.5rem !important;
 }
 
+#lista-cursos .row {
+  margin-bottom: 20px;
+}
+
+.info-card {
+  padding: 10px 20px;
+}
+
+.info-card p,
+.card h4 {
+  margin-bottom: 5px;
+}
+
+.info-card .precio {
+  text-decoration: line-through;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.info-card .precio span {
+  font-weight: 700;
+  font-size: 22px;
+}
+
+/* 
+////Hacer una variable para el estilo de la caja
+
 .home_pricing-web {
-  border-radius: 5px 5px 5px 5px;
-  border: 2px solid #0c0758;
-  background-color: #6589ee;
-  margin-bottom: 2%;
+    border-radius: 5px 5px 5px 5px;
+    border: 2px solid #0c0758;
+    background-color: rgb(101, 137, 238);
+    margin-bottom: 2%;
 }
 
 .home_pricing-branding {
-  border-radius: 5px 5px 5px 5px;
-  border: 2px solid #0c0758;
-  background-color: #6589ee;
-  margin-bottom: 2%;
+    border-radius: 5px 5px 5px 5px;
+    border: 2px solid #0c0758;
+    background-color: rgb(101, 137, 238);
+    margin-bottom: 2%;
 }
 
 .home_pricing-comunicacion {
-  border-radius: 5px 5px 5px 5px;
-  border: 2px solid #0c0758;
-  background-color: #6589ee;
-  margin-bottom: 2%;
+    border-radius: 5px 5px 5px 5px;
+    border: 2px solid #0c0758;
+    background-color: rgb(101, 137, 238);
+    margin-bottom: 2%;
 }
 
-/* @import "componentes"; */
+ */
+.button,
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  display: inline-block;
+  height: 38px;
+  padding: 0 30px;
+  color: #555;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 38px;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: transparent;
+  border-radius: 4px;
+  border: 1px solid #bbb;
+  cursor: pointer;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.button:hover,
+button:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover,
+.button:focus,
+button:focus,
+input[type="submit"]:focus,
+input[type="reset"]:focus,
+input[type="button"]:focus {
+  color: #333;
+  border-color: #888;
+  outline: 0;
+}
+
+.button.button-primary,
+button.button-primary,
+input[type="submit"].button-primary,
+input[type="reset"].button-primary,
+input[type="button"].button-primary {
+  color: #FFF;
+  background-color: #33C3F0;
+  border-color: #33C3F0;
+}
+
+.button.button-primary:hover,
+button.button-primary:hover,
+input[type="submit"].button-primary:hover,
+input[type="reset"].button-primary:hover,
+input[type="button"].button-primary:hover,
+.button.button-primary:focus,
+button.button-primary:focus,
+input[type="submit"].button-primary:focus,
+input[type="reset"].button-primary:focus,
+input[type="button"].button-primary:focus {
+  color: #FFF;
+  background-color: #1EAEDB;
+  border-color: #1EAEDB;
+}
+
 * {
   padding: 0;
   margin: 0;
