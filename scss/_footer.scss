@@ -19,3 +19,17 @@
 
     text-decoration: none;
 }
+
+.text-footer {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem !important;
+    color: rgb(157, 208, 231) !important;
+}
+
+.enlaces_footer {
+    color: rgb(211, 174, 208);
+
+    &:hover {
+        color: white !important;
+    }
+}
