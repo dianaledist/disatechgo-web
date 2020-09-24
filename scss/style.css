@@ -71,10 +71,9 @@ ul {
   float: left;
 }
 
-footer {
-  background-color: whitesmoke !important;
-}
-
+/* footer {
+    background-color:rgba(28,48,128,1) !important;
+} */
 .footer_li {
   font-size: 1.5rem;
 }
@@ -238,5 +237,19 @@ input[type="button"].button-primary:focus {
 
 html {
   font-size: 62.5%;
+}
+
+.card {
+  background-color: white !important;
+  margin-top: 3% !important;
+  border-radius: 5px 5px 5px 5px !important;
+}
+
+#grilla_servicios {
+  margin: 1% !important;
+}
+
+.body-general {
+  background: radial-gradient(circle, #1c3080 0%, #921768 100%) !important;
 }
 /*# sourceMappingURL=style.css.map */
