@@ -1,3 +1,28 @@
+
+
+#lista-cursos .row {
+    margin-bottom:20px;
+}
+
+.info-card  {
+    padding: 10px 20px;
+}
+
+.info-card p, 
+.card h4 {
+    margin-bottom: 5px;
+}
+.info-card .precio {
+    text-decoration: line-through;
+    font-size: 18px;
+    margin-top: 10px;
+}
+.info-card .precio span {
+    font-weight: 700;
+    font-size: 22px;
+}
+
+/* 
 ////Hacer una variable para el estilo de la caja
 
 .home_pricing-web {
@@ -21,3 +46,4 @@
     margin-bottom: 2%;
 }
 
+ */

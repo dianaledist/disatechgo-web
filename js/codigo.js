@@ -2,7 +2,6 @@ function login() {
     const nombre =document.querySelector('#inputname').value;
     const edad =document.querySelector('#inputedad').value;
 
-
     if (!nombre) {
         alert("debe ingresar un nombre!")
     } else if (edad<0 || edad>99) {
@@ -18,170 +17,172 @@ function login() {
     console.log(edad);
 }
 
-const serviciosWeb = [
+const servicios = [
     {
+        imagen:"../images/web.png",
         tipo:"Diseño web con plantillas",
         precio:200,
+        id:"1",
     },
     {
+        imagen:"../images/web2.png",
         tipo:"Diseño web personalizado",
         precio:300,
+        id:"2",
     },
     {
+        imagen:"../images/web3.png",
         tipo:"Programación y funcionalidades",
         precio: 500,
+        id:"3",
     },
     {
-        tipo:"Programación y funcionalidades",
+        imagen:"../images/web4.png",
+        tipo:"Logo",
+        precio:100,
+        id:"4",
+    },
+    {
+        imagen:"../images/web4.png",
+        tipo:"Diseño editorial",
+        precio:300,
+        id:"5",
+    },
+    {
+        imagen:"../images/web3.png",
+        tipo:"Community Manager",
+        precio:100,
+        id:"6",
+    },
+    {
+        imagen:"../images/web2.png",
+        tipo:"Diseño e-mail marketing",
+        precio:300,
+        id:"7",
+    },
+    {
+        imagen:"../images/web.png",
+        tipo:"SEO orgánico para potenciar el sitio",
         precio: 500,
-    },
-];
-
-const serviciosBranding = [
-    {
-        tipo2:"Logo",
-        precio2:50,
-    },
-    {
-        tipo2:"Diseño editorial",
-        precio2:300,
-    },
-    {
-        tipo2:"Community Manager",
-        precio2: 500,
-    },
-];
-
-const serviciosComunicacion = [
-    {
-        tipo3:"Community Manager",
-        precio3:50,
-    },
-    {
-        tipo3:"Diseño e-mail marketing",
-        precio3:300,
-    },
-    {
-        tipo3:"SEO orgánico para potenciar el sitio",
-        precio3: 500,
+        id:"8",
     },
 ];
 
 
 
-console.log(serviciosWeb);
-console.log(serviciosBranding);
-console.log(serviciosBranding[1].tipo2);
-console.log(serviciosComunicacion);
 
-var divServicios = document.querySelector(".container-fluid.home_pricing-web.col-10");
-var divServiciosBranding = document.querySelector(".container-fluid.home_pricing-branding.col-10");
-var agregando=document.querySelector(".infoPresupuesto");
+console.log(servicios);
 
+const carrito=document.querySelector('#carrito');
+const contenedorCarrito=document.querySelector('#lista-carrito tbody');
+const vaciarCarritobtn=document.querySelector('#vaciar-carrito');
+
+const divServicios = document.querySelector("#grilla_servicios");
 console.log(divServicios);
-console.log(typeof serviciosWeb);
-console.log(divServiciosBranding);
-console.log(typeof serviciosBranding);
+
+let articulosCarrito=[];
 
 
-serviciosWeb.forEach ((servicio) => {                
-    for (let i = 0; i<=serviciosWeb.length; i++)  {
-    let contenedorDescripcionWeb=document.createElement('div');
-    contenedorDescripcionWeb.classList.add(".container-fluid.home_pricing-web.col-10");
-    contenedorDescripcionWeb.innerHTML=`<div class="home_pricing-opciones d-flex flex-wrap justify-content-center">
-    <div class="home_pricing-opciones-titulo col-6"><h3>${serviciosWeb[i].tipo}</h3></div>
-    <div class="home_pricing-opciones-precio col-2d-lg-block "><h3>${serviciosWeb[i].precio}</h3></div>
-    <div class="home_pricing-opciones-checkbox col-2"><input type="button" name="agregar" value="Agregar" onclick="Agregar()" class="btn btn-primary home_boton"></div>
-    </div>`;
-    divServicios.appendChild(contenedorDescripcionWeb);
-    }
-    });
-    
-    
-
-serviciosBranding.forEach (servicio2 => {                
-    for (let j = 0; j<=serviciosBranding.length; j++)  {
-    let contenedorDescripcionBranding=document.createElement('div');
-    contenedorDescripcionBranding.classList.add(".container-fluid.home_pricing-branding.col-10");
-    contenedorDescripcionBranding.innerHTML=`<div class="home_pricing-opciones d-flex flex-wrap justify-content-center">
-    <div class="home_pricing-opciones-titulo col-6"><h3>${serviciosBranding[j].tipo2}</h3></div>
-    <div class="home_pricing-opciones-precio col-2d-lg-block "><h3>${serviciosBranding[j].precio2}</h3></div>
-    <div class="home_pricing-opciones-checkbox col-2"><input type="checkbox" class="form-check-input" id="checkPrecio" onclick="seleccionador()"></div>
-    </div>`;
-    divServiciosBranding.appendChild(contenedorDescripcionBranding);
-    }
-    });
-
-function Agregar () {
-    serviciosWeb.forEach (servicio => {   
-    for (let j = 0; j<=serviciosWeb.length; j++)  {
-    let agregaSingle=document.createElement('div');
-    agregaSingle.classList.add("infoPresupuesto");
-    agregando.innerHTML=`<h3>${serviciosWeb[0].tipo} cuesta: ${serviciosWeb[0].precio}</h3>`;
-    agregando.appendChild(agregaSingle);
-    }
-    });
+cargarEventListeners ();
+function cargarEventListeners(){
+    divServicios.addEventListener('click',agregarCarrito);
 }
 
-/* function Servicios(tipo,precio)
-{
-    this.tipo=tipo;
-    this.precio=precio
+function agregarCarrito(e){
+
+    if(e.target.classList.contains('agregar-servicio')){
+        const servicioSeleccionado=e.target.parentElement.parentElement;
+/*      console.log(servicioSeleccionado);
+
+        console.log(e.target.parentElement.parentElement);
+        console.log('Agregando al carrito...') */
+
+        leerDatosServicio(servicioSeleccionado);
+    }    
 }
 
-var servicio1=new Servicios ("Diseño web con plantillas",200);
-var servicio2=new Servicios ("Diseño web personalizado",300);
-var servicio3=new Servicios ("Programación y funcionalidades",500);
+function leerDatosServicio(servicio) {
+    const infoServicio={
+        titulo:servicio.querySelector('.card-title').textContent,
+        precio:servicio.querySelector('.card-text').textContent,
+        id: servicio.querySelector('a').getAttribute('data-id'),
+        cantidad:1,
+    }
+
+    const existe = articulosCarrito.some(servicio=> servicio.id===infoServicio.id);
+    console.log(existe);
 
 
-const presupuesto=[servicio1,servicio2,servicio3];
-console.log(presupuesto);
-
-const suma=servicio1.precio+servicio2.precio+servicio3.precio;
+    articulosCarrito=[...articulosCarrito, infoServicio];
 
 
-function Calcular () {
-    console.log(`El precio total es de $ ${suma}`);
-    servicio4=new Servicios("Landing Page",400);
-    presupuesto.push(servicio4);
-    console.log(presupuesto);
+    carritoHTML();
+}
 
-    suma2=(suma+servicio4.precio);
+function carritoHTML(){
 
-    console.log(`El nuevo precio total es de ${suma2}`);
-} */
+    limpiarHTML();
+
+    articulosCarrito.forEach( servicio => {
+ /*        console.log(servicio); */
+        const { titulo, precio, cantidad, id} = servicio
+        const row = document.createElement('tr');
+        row.innerHTML = `
+        <td>
+        ${titulo}
+        </td>
+        <td>
+        ${precio}
+        </td>
+        <td>
+        ${cantidad}
+        </td>
+        <td>
+        <a href="#" class="borrar-curso" data-id="${id}">X 
+        </td>
+        `;
+
+        contenedorCarrito.appendChild(row);
+    });
+/*     console.log(articulosCarrito); */
+}
+
+function limpiarHTML() {
+    while(contenedorCarrito.firstChild) {
+        contenedorCarrito.removeChild(contenedorCarrito.firstChild)
+    }
+}
 
 
 
+//acceder a cada propiedad del objeto del array mediante map
+const imagencard = servicios.map(function(laimagen) {
+    return laimagen.imagen;
+    });
+const tipocard = servicios.map(function(laimagen) {
+    return laimagen.tipo;
+    });
+const preciocard = servicios.map(function(laimagen) {
+    return laimagen.precio;
+    });
+const idcard = servicios.map(function(laimagen) {
+    return laimagen.id;
+    });
 
+armarCards();
 
-/* contenedorDescripcion.classList.add(".home_pricing-opciones-titulo.col-6");
-let descripcionServicio =document.createElement('h3'); 
-descripcionServicio.textContent=`${tipo}`;       
-contenedorDescripcion.appendChild(descripcionServicio);
+function armarCards(){
+    for (let j = 0; j<servicios.length; j++) { 
+        let cards=document.createElement('div');
+        cards.classList.add("card");
+        cards.style="width: 25rem";
+      /*   console.log(cards); */
+        cards.innerHTML= `<img class="card-img-top" src="${imagencard[j]}" alt="Card image cap${j+1}"><div class="card-body">
+          <h5 class="card-title ">${tipocard[j]}</h5>
+          <p class="card-text">${preciocard[j]}</p>
+          <a href="#" class="u-full-width button-primary button input agregar-servicio" data-id="${idcard[j]}">Agregar Al Carrito</a>
+        </div>`;
+        divServicios.appendChild(cards);
+    }
+}
 
-let contenedorPrecio=document.createElement('div');
-contenedorPrecio.classList.add(".home_pricing-opciones-precio.col-2.d-none.d-md-none.d-lg-block");
-let precioServicio=document.createElement('h3');
-contenedorPrecio.appendChild(precioServicio);
-
-let contenedorCheck=document.createElement('div');
-contenedorCheck.classList.add(".home_pricing-opciones-checkbox.col-2");
-let botonServicio=document.createElement('checkbox');
-botonServicio.classList.add(".form-check-input");
-contenedorCheck.appendChild(botonServicio);
-
-let contenedorOpciones=document.createElement('div');
-contenedorOpciones.classList.add(".home_pricing-opciones.d-flex.flex-wrap.justify-content-center");
-contenedorOpciones.appendChild(contenedorDescripcion);
-contenedorOpciones.appendChild(contenedorPrecio);
-contenedorOpciones.appendChild(contenedorCheck); */
-
-/*   let contenedorGlobal=document.createElement('div');
-contenedorGlobal.classList.add(".container-fluid.home_pricing.col-10");
-contenedorGlobal.appendChild(contenedorOpciones);
-
-console.log(contenedorGlobal); */
-
-/* var divServicios = document.querySelector(".container-fluid.home_pricing.col-10");
-divServicios.insertBefore(contenedorOpciones, divServicios.children[0]); */

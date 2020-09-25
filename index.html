@@ -12,10 +12,11 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
 </head>
-<body>
+<body class="body-general">
 
   <header class="header_home">
-      <nav class="navbar navbar-expand-lg navbar-light scrolling-navbar nav">
+      
+    <nav class="navbar navbar-expand-lg navbar-light scrolling-navbar nav">
         <div class="header_nav-logo">
           <a href="index.html">
               <img src="images/logo.png" class="navbar-img" alt="logo">
@@ -45,18 +46,21 @@
             <div class="two columns u-pull-right">  
                 <ul>
                   <li class="submenu">
-                    <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-shop" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                      <path fill-rule="evenodd" d="M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.371 2.371 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976l2.61-3.045zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0zM1.5 8.5A.5.5 0 0 1 2 9v6h1v-5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v5h6V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5zM4 15h3v-5H4v5zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3zm3 0h-2v3h2v-3z"/>
-                    </svg>
-                    <div class="header_nav-shopcantidad">
-                      <span class="nav_cantidad" id="cantidadP">0</span>
+
+                    <div class="header_nav-shop" onclick="openNav()">
+                      <div class="p-2 m-2">
+                        <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-shop" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.371 2.371 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976l2.61-3.045zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0zM1.5 8.5A.5.5 0 0 1 2 9v6h1v-5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v5h6V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5zM4 15h3v-5H4v5zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3zm3 0h-2v3h2v-3z"/>
+                        </svg>
+                        <span class="nav_cantidad" id="cantidadP">0</span>
+                      </div>
+                      
                     </div>
                           <div id="carrito">
                                   
                                   <table id="lista-carrito" class="u-full-width">
                                       <thead>
                                           <tr>
-                                              <th><h5>Imagen</h5></th>
                                               <th><h5>Nombre</h5></th>
                                               <th><h5>Precio</h5></th>
                                               <th><h5>Cantidad</h5></th>
@@ -69,9 +73,7 @@
                                   <a href="#" id="vaciar-carrito" class="button u-full-width">Vaciar Carrito</a>
                           </div>
                   </li>
-              </ul>
-
-              
+              </ul>   
             </div>
        
       </nav>
@@ -90,36 +92,15 @@
   </div>
 
 
-  <div class="text-center container-fluid mt-5 mb-5"><h2>Cotizá tu presupuesto en un instante!</h2></div>
 
-  <div class="container-fluid home_pricing-web col-10">
-    <div class="home_pricing-servicio d-flex justify-content-center">
-      <h2 class="home_pricing-servicio-titulo">Diseño web</h2>    
-    </div>
+ 
+
+  <div id="grilla_servicios" class="d-flex flex-wrap justify-content-around">
   </div>
 
-  <div class="container-fluid home_pricing-branding col-10">
-    <div class="home_pricing-servicio2 d-flex justify-content-center">
-      <h2 class="home_pricing-servicio-titulo">Branding</h2>    
-    </div>
-  </div>
 
-  <div class="container-fluid home_pricing-comunicacion col-10">
-    <div class="home_pricing-servicio3 d-flex justify-content-center">
-      <h2 class="home_pricing-servicio-titulo">Comunicación y marketing</h2>    
-    </div>
+  <div class="home_preciototal">
   </div>
-
-  <div class="infoPresupuesto container text-center">
-  <h2 class="container text-center" style="display:none">El presupuesto es: </h2>
-  </div>
-
-<!--   <div class="text-center mb-5">
-  <input type="button" name="enviar" value="Calcular" onclick="Calcular()" class="btn btn-primary home_boton">
-  </div>
- -->
-
-  <div class="home_preciototal"></div>
   
 
 
@@ -129,27 +110,27 @@
       <!-- Social buttons -->
       <ul class="list-unstyled list-inline text-center">
         <li class="list-inline-item footer_li">
-          <a class="btn-floating btn-fb mx-1">
+          <a class="btn-floating btn-fb mx-1 enlaces_footer">
             <i class="fab fa-facebook-f"> </i>
           </a>
         </li>
         <li class="list-inline-item footer_li">
-          <a class="btn-floating btn-tw mx-1">
+          <a class="btn-floating btn-tw mx-1 enlaces_footer">
             <i class="fab fa-twitter"> </i>
           </a>
         </li>
         <li class="list-inline-item footer_li">
-          <a class="btn-floating btn-gplus mx-1">
+          <a class="btn-floating btn-gplus mx-1 enlaces_footer">
             <i class="fab fa-google-plus-g"> </i>
           </a>
         </li>
         <li class="list-inline-item footer_li">
-          <a class="btn-floating btn-li mx-1">
+          <a class="btn-floating btn-li mx-1 enlaces_footer">
             <i class="fab fa-linkedin-in"> </i>
           </a>
         </li>
         <li class="list-inline-item">
-          <a class="btn-floating btn-dribbble mx-1">
+          <a class="btn-floating btn-dribbble mx-1 enlaces_footer">
             <i class="fab fa-dribbble"> </i>
           </a>
         </li>
@@ -157,10 +138,10 @@
     </div>
     <!-- Copyright -->
     <div class="footer-datos text-center footer_li">
-      <p>Diseñado por <a href="https://www.linkedin.com/in/dianadistefano/" class="enlaces_footer">Diana Di Stefano</a> by <a href="https://disatechgo.com/" class="enlaces_footer">disatechgo</a></p>
+      <p class="text-footer">Diseñado por <a href="https://www.linkedin.com/in/dianadistefano/" class="enlaces_footer">Diana Di Stefano</a> by <a href="https://disatechgo.com/" class="enlaces_footer">disatechgo</a></p>
   </div>
 </footer>
-<a href="#footer" class="btn-flotante"><h4>Contacto</h4></a>
+<a href="#footer" class="button-primary button btn-flotante d-flex align-items-center"><h4>Contacto</h4></a>
 
 
 

@@ -4,7 +4,7 @@
 @import "variables";
 @import "home";
 
-/* @import "componentes"; */
+@import "componentes";
 
 
 *{
@@ -17,12 +17,22 @@ html {
     font-size: 62.5%; 
 }
 
+.card {
+    background-color: white !important;
+    margin-top: 3% !important;
+    border-radius: 5px 5px 5px 5px !important;
+
+}
+
+#grilla_servicios {
+    margin: 1% !important;
+  
+}
 
 
-
-
-
-
+.body-general {
+    background: radial-gradient(circle, rgba(28,48,128,1) 0%, rgba(146,23,104,1) 100%) !important;
+}
 
 
 
