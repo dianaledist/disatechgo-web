@@ -62,14 +62,11 @@ const servicios = [
     },
     {
         imagen:"images/web.png",
-        tipo:"SEO orgánico para potenciar el sitio",
+        tipo:"SEO orgánico para potenciar el sitio Web",
         precio: 500,
         id:"8",
     },
 ];
-
-
-
 
 console.log(servicios);
 
