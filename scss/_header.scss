@@ -1,5 +1,5 @@
 .nav {
-    background-color: whitesmoke;
+    background-color: white;
 
 }
 
@@ -44,9 +44,11 @@ ul {
     z-index: 1;
     background-color: white;
     padding: 20px;
-    min-height: 400px;
-    min-width: 300px;
+    min-height: 100vh;
+    min-width: 450px;
 }
+
+
 
 .u-full-width {
     width: 100%;
@@ -59,3 +61,6 @@ ul {
   .u-pull-left {
     float: left; }
   
+.tablas {
+    height: 30px;
+}

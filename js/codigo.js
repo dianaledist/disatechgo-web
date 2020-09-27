@@ -17,80 +17,36 @@ function login() {
     console.log(edad);
 }
 
-const servicios = [
-    {
-        imagen:"images/web.png",
-        tipo:"Diseño web con plantillas",
-        precio:200,
-        id:"1",
-    },
-    {
-        imagen:"images/web2.png",
-        tipo:"Diseño web personalizado",
-        precio:300,
-        id:"2",
-    },
-    {
-        imagen:"images/web3.png",
-        tipo:"Programación y funcionalidades",
-        precio: 500,
-        id:"3",
-    },
-    {
-        imagen:"images/web4.png",
-        tipo:"Logo",
-        precio:100,
-        id:"4",
-    },
-    {
-        imagen:"images/web4.png",
-        tipo:"Diseño editorial",
-        precio:300,
-        id:"5",
-    },
-    {
-        imagen:"images/web3.png",
-        tipo:"Community Manager",
-        precio:100,
-        id:"6",
-    },
-    {
-        imagen:"images/web2.png",
-        tipo:"Diseño e-mail marketing",
-        precio:300,
-        id:"7",
-    },
-    {
-        imagen:"images/web.png",
-        tipo:"SEO orgánico para potenciar el sitio Web",
-        precio: 500,
-        id:"8",
-    },
-];
-
-console.log(servicios);
+/* console.log(servicios); */
 
 const carrito=document.querySelector('#carrito');
 const contenedorCarrito=document.querySelector('#lista-carrito tbody');
 const vaciarCarritobtn=document.querySelector('#vaciar-carrito');
 
 const divServicios = document.querySelector("#grilla_servicios");
-console.log(divServicios);
+
+const variableCarrito=document.querySelector("#cantidadP");
+const navCarrito=document.querySelector(".header_nav-shop");
+console.log(navCarrito);
+
+/* console.log(divServicios); */
 
 let articulosCarrito=[];
 
 
 cargarEventListeners ();
+
 function cargarEventListeners(){
     divServicios.addEventListener('click',agregarCarrito);
+    contenedorCarrito.addEventListener('click',eliminarServicio);
+
 }
 
 function agregarCarrito(e){
 
     if(e.target.classList.contains('agregar-servicio')){
         const servicioSeleccionado=e.target.parentElement.parentElement;
-/*      console.log(servicioSeleccionado);
-
+/*         console.log(servicioSeleccionado);
         console.log(e.target.parentElement.parentElement);
         console.log('Agregando al carrito...') */
 
@@ -109,39 +65,71 @@ function leerDatosServicio(servicio) {
     const existe = articulosCarrito.some(servicio=> servicio.id===infoServicio.id);
     console.log(existe);
 
+    if(existe){
+        const service =articulosCarrito.map(items=> {
+            if(items.id===infoServicio.id)
+            {
+               items.cantidad++;
+               return items;
+              
+            } else {
+                return items;
+            }
+        });
+        
+        articulosCarrito=[...service];
+    } else {
+        articulosCarrito=[...articulosCarrito, infoServicio];
+        const articulosStorage=JSON.stringify(articulosCarrito);
 
-    articulosCarrito=[...articulosCarrito, infoServicio];
+        localStorage.setItem('datos carrito', articulosStorage);
+        console.log('objetoObtenido: ', JSON.parse(articulosStorage));
+    }
 
 
-    carritoHTML();
+carritoHTML();
 }
+
+function eliminarServicio(e){
+    /*     console.log('eliminar'); */
+        if(e.target.classList.contains('borrar-servicio')){
+           const servicioId=e.target.getAttribute('data-id');
+           articulosCarrito=articulosCarrito.filter(servicio=> servicio.id!==servicioId);
+            
+           carritoHTML();
+    /*        console.log(articulosCarrito); */
+        }
+    }
 
 function carritoHTML(){
 
     limpiarHTML();
-
+    
     articulosCarrito.forEach( servicio => {
  /*        console.log(servicio); */
         const { titulo, precio, cantidad, id} = servicio
+
+/*         localStorage.setItem(titulo, cantidad); */
         const row = document.createElement('tr');
+        row.classList.add("tablas");
         row.innerHTML = `
         <td>
-        ${titulo}
+        <h6>${titulo}</h6>
         </td>
         <td>
-        ${precio}
+        <h6>${precio}</h6>
         </td>
         <td>
-        ${cantidad}
+        <h6>${cantidad}</h6>
         </td>
         <td>
-        <a href="#" class="borrar-curso" data-id="${id}">X 
+        <a href="#" class="borrar-servicio" data-id="${id}">X 
         </td>
         `;
 
         contenedorCarrito.appendChild(row);
     });
-/*     console.log(articulosCarrito); */
+    console.log(articulosCarrito);
 }
 
 function limpiarHTML() {
@@ -149,6 +137,7 @@ function limpiarHTML() {
         contenedorCarrito.removeChild(contenedorCarrito.firstChild)
     }
 }
+
 
 
 
@@ -175,7 +164,7 @@ function armarCards(){
         cards.style="width: 25rem";
       /*   console.log(cards); */
         cards.innerHTML= `<img class="card-img-top" src="${imagencard[j]}" alt="Card image cap${j+1}"><div class="card-body">
-          <h5 class="card-title ">${tipocard[j]}</h5>
+          <h5 class="card-title">${tipocard[j]}</h5>
           <p class="card-text">${preciocard[j]}</p>
           <a href="#" class="u-full-width button-primary button input agregar-servicio" data-id="${idcard[j]}">Agregar Al Carrito</a>
         </div>`;
