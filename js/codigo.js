@@ -30,6 +30,7 @@ const navCarrito=document.querySelector(".header_nav-shop");
 const botonLogin=document.querySelector(".login-user");
 
 const valorTotal=document.querySelector(".muestra-total");
+console.log(valorTotal);
 
 /* console.log(navCarrito); */
 /* console.log(divServicios); */
@@ -43,7 +44,12 @@ function cargarEventListeners(){
     divServicios.addEventListener('click',agregarCarrito);
     contenedorCarrito.addEventListener('click',eliminarServicio);
     botonLogin.addEventListener('click',loginUser);
-    vaciarCarritobtn.addEventListener('click',vaciarCarrito)
+    vaciarCarritobtn.addEventListener('click',vaciarCarrito);
+    document.addEventListener('DOMContentLoaded',()=>{
+        articulosCarrito=JSON.parse(localStorage.getItem('datos carrito')) || [];
+        carritoHTML();
+        console.log(articulosCarrito);
+    })
 }
 
 
@@ -103,10 +109,7 @@ function leerDatosServicio(servicio) {
         articulosCarrito=[...service];
     } else {
         articulosCarrito=[...articulosCarrito, infoServicio];
-        const articulosStorage=JSON.stringify(articulosCarrito);
-
-        localStorage.setItem('datos carrito', articulosStorage);
-        console.log('objetoObtenido: ', JSON.parse(articulosStorage));
+        
     }
 
 
@@ -119,7 +122,8 @@ function eliminarServicio(e){
            const servicioId=e.target.getAttribute('data-id');
            articulosCarrito=articulosCarrito.filter(servicio=> servicio.id!==servicioId);
            console.log(articulosCarrito);
-            
+
+           sincronizarStorage();
            carritoHTML();
     /*        console.log(articulosCarrito); */
             calcularTotal();
@@ -131,9 +135,12 @@ function vaciarCarrito(e){
         console.log(articulosCarrito); */
         contenedorCarrito.innerHTML = '';
         articulosCarrito.length=0;
-        console.log(articulosCarrito);     
+        console.log(articulosCarrito);   
+        localStorage.clear()  
         calcularTotal();      
+        carritoHTML();
     }
+
 
 function carritoHTML(){
 
@@ -142,7 +149,7 @@ function carritoHTML(){
     articulosCarrito.forEach( servicio => {
  /*        console.log(servicio); */
 
-        const { titulo, precio, cantidad, id} = servicio
+        const {titulo, precio, cantidad, id} = servicio
 
 /*         localStorage.setItem(titulo, cantidad); */
         const row = document.createElement('tr');
@@ -163,15 +170,23 @@ function carritoHTML(){
         `;
      
         contenedorCarrito.appendChild(row);
-        
-    });
 
+        sincronizarStorage();
+
+    });
 }
 
 function limpiarHTML() {
     while(contenedorCarrito.firstChild) {
         contenedorCarrito.removeChild(contenedorCarrito.firstChild)
     }
+}
+
+function sincronizarStorage() {
+    const articulosStorage=JSON.stringify(articulosCarrito);
+
+    localStorage.setItem('datos carrito', articulosStorage);
+    console.log('objetoObtenido: ', JSON.parse(articulosStorage));
 }
 
 function calcularTotal() {
