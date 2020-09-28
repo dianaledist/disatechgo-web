@@ -63,3 +63,13 @@ input[type="button"].button-primary:focus {
     color: white;
     font-weight: bold;
 }
+
+.cantidad-servicio {
+  display:none;
+  background-color: red;
+  border-radius: 50%;
+  padding: 5px 10px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}

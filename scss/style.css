@@ -12,12 +12,18 @@
     justify-content: center;
 
 } */
+.icon-user {
+  padding: 3%;
+}
+
 .header_nav-links {
   font-size: 2rem;
 }
 
 .header_nav-shop {
-  border-color: black !important;
+  border: 1px solid black !important;
+  border-radius: 5px 5px 5px 5px;
+  width: 40px;
 }
 
 .header_nav-shop:hover {
@@ -233,6 +239,16 @@ input[type="button"].button-primary:focus {
 }
 
 .borrar-servicio {
+  background-color: red;
+  border-radius: 50%;
+  padding: 5px 10px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+.cantidad-servicio {
+  display: none;
   background-color: red;
   border-radius: 50%;
   padding: 5px 10px;

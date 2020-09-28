@@ -13,12 +13,19 @@
 
 } */
 
+
+.icon-user {
+padding: 3%;
+}
+
 .header_nav-links {
     font-size: 2rem;
 }
 
 .header_nav-shop {
-    border-color: black !important;
+    border: 1px solid black !important;
+    border-radius: 5px 5px 5px 5px;
+    width: 40px;
     &:hover {
         background-color: rgb(213, 74, 248) !important;
     }

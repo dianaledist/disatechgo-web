@@ -1,4 +1,4 @@
-function login() {
+/* function login() {
     const nombre =document.querySelector('#inputname').value;
     const edad =document.querySelector('#inputedad').value;
 
@@ -15,7 +15,8 @@ function login() {
     console.log("Hola");
     console.log(nombre);
     console.log(edad);
-}
+} */
+
 
 /* console.log(servicios); */
 
@@ -27,7 +28,10 @@ const divServicios = document.querySelector("#grilla_servicios");
 
 const variableCarrito=document.querySelector("#cantidadP");
 const navCarrito=document.querySelector(".header_nav-shop");
-console.log(navCarrito);
+
+const botonLogin=document.querySelector(".login-user")
+
+/* console.log(navCarrito); */
 
 /* console.log(divServicios); */
 
@@ -39,7 +43,24 @@ cargarEventListeners ();
 function cargarEventListeners(){
     divServicios.addEventListener('click',agregarCarrito);
     contenedorCarrito.addEventListener('click',eliminarServicio);
+    botonLogin.addEventListener('click',loginUser);
 
+}
+
+function loginUser(){
+    const nombreUser=document.querySelector('#orangeForm-name').value;
+const mailUser=document.querySelector('#orangeForm-email').value;
+const passwordUser=document.querySelector('#orangeForm-pass').value;
+
+console.log(nombreUser);
+if (!nombreUser|| !mailUser || !passwordUser) {
+    alert("Ingrese sus datos para una mejor experiencia :D")
+} else {
+    localStorage.setItem(nombreUser,mailUser);
+    const bienvenida=document.createElement('div');
+    bienvenida.classList.add('nombre-user');
+    bienvenida.innerHTML= `Hola ${nombreUser}`;  
+}
 }
 
 function agregarCarrito(e){
@@ -63,7 +84,7 @@ function leerDatosServicio(servicio) {
     }
 
     const existe = articulosCarrito.some(servicio=> servicio.id===infoServicio.id);
-    console.log(existe);
+/*     console.log(existe); */
 
     if(existe){
         const service =articulosCarrito.map(items=> {
@@ -107,6 +128,7 @@ function carritoHTML(){
     
     articulosCarrito.forEach( servicio => {
  /*        console.log(servicio); */
+
         const { titulo, precio, cantidad, id} = servicio
 
 /*         localStorage.setItem(titulo, cantidad); */
@@ -129,6 +151,7 @@ function carritoHTML(){
 
         contenedorCarrito.appendChild(row);
     });
+
     console.log(articulosCarrito);
 }
 
