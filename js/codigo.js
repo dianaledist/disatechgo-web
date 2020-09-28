@@ -18,8 +18,6 @@
 } */
 
 
-/* console.log(servicios); */
-
 const carrito=document.querySelector('#carrito');
 const contenedorCarrito=document.querySelector('#lista-carrito tbody');
 const vaciarCarritobtn=document.querySelector('#vaciar-carrito');
@@ -29,10 +27,11 @@ const divServicios = document.querySelector("#grilla_servicios");
 const variableCarrito=document.querySelector("#cantidadP");
 const navCarrito=document.querySelector(".header_nav-shop");
 
-const botonLogin=document.querySelector(".login-user")
+const botonLogin=document.querySelector(".login-user");
+
+const valorTotal=document.querySelector(".muestra-total");
 
 /* console.log(navCarrito); */
-
 /* console.log(divServicios); */
 
 let articulosCarrito=[];
@@ -44,8 +43,9 @@ function cargarEventListeners(){
     divServicios.addEventListener('click',agregarCarrito);
     contenedorCarrito.addEventListener('click',eliminarServicio);
     botonLogin.addEventListener('click',loginUser);
-
+    vaciarCarritobtn.addEventListener('click',vaciarCarrito)
 }
+
 
 function loginUser(){
     const nombreUser=document.querySelector('#orangeForm-name').value;
@@ -72,6 +72,8 @@ function agregarCarrito(e){
         console.log('Agregando al carrito...') */
 
         leerDatosServicio(servicioSeleccionado);
+
+        calcularTotal();
     }    
 }
 
@@ -116,10 +118,21 @@ function eliminarServicio(e){
         if(e.target.classList.contains('borrar-servicio')){
            const servicioId=e.target.getAttribute('data-id');
            articulosCarrito=articulosCarrito.filter(servicio=> servicio.id!==servicioId);
+           console.log(articulosCarrito);
             
            carritoHTML();
     /*        console.log(articulosCarrito); */
+            calcularTotal();
         }
+    }
+
+function vaciarCarrito(e){
+    /*    console.log('hola');
+        console.log(articulosCarrito); */
+        contenedorCarrito.innerHTML = '';
+        articulosCarrito.length=0;
+        console.log(articulosCarrito);     
+        calcularTotal();      
     }
 
 function carritoHTML(){
@@ -148,11 +161,11 @@ function carritoHTML(){
         <a href="#" class="borrar-servicio" data-id="${id}">X 
         </td>
         `;
-
+     
         contenedorCarrito.appendChild(row);
+        
     });
 
-    console.log(articulosCarrito);
 }
 
 function limpiarHTML() {
@@ -161,7 +174,10 @@ function limpiarHTML() {
     }
 }
 
+function calcularTotal() {
 
+}
+   
 
 
 //acceder a cada propiedad del objeto del array mediante map

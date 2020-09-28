@@ -48,3 +48,6 @@ const servicios = [
         id:"8",
     },
 ];
+
+
+/* console.log(servicios); */

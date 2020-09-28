@@ -27,7 +27,7 @@
 }
 
 .header_nav-shop:hover {
-  background-color: #d54af8 !important;
+  background-color: #c94fa0 !important;
 }
 
 ul {
@@ -141,10 +141,6 @@ p {
   font-size: 1.5rem !important;
 }
 
-.home_boton {
-  font-size: 1.5rem !important;
-}
-
 #lista-cursos .row {
   margin-bottom: 20px;
 }
@@ -171,6 +167,10 @@ p {
 
 .card-text {
   text-align: right;
+}
+
+.home_boton {
+  font-size: 1.5rem !important;
 }
 
 .button,
