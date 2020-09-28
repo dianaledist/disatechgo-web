@@ -146,12 +146,21 @@ function carritoHTML(){
 
     limpiarHTML();
     
+    arraySubtotal=[];
+    total=0;
+
     articulosCarrito.forEach( servicio => {
- /*        console.log(servicio); */
+        /* console.log(servicio); */
 
         const {titulo, precio, cantidad, id} = servicio
 
-/*         localStorage.setItem(titulo, cantidad); */
+        const sumaTotal=precio*cantidad;
+        arraySubtotal=[...arraySubtotal,sumaTotal]
+        /* console.log(sumaTotal); */
+
+   /*      console.log(subtotal); */
+/*         console.log(total); */
+
         const row = document.createElement('tr');
         row.classList.add("tablas");
         row.innerHTML = `
@@ -168,12 +177,23 @@ function carritoHTML(){
         <a href="#" class="borrar-servicio" data-id="${id}">X 
         </td>
         `;
-     
+
         contenedorCarrito.appendChild(row);
 
         sincronizarStorage();
 
     });
+    console.log(arraySubtotal);
+    const precioFinal=(arraySubtotal.reduce(function(a, b){ return a + b; }));
+    console.log(arraySubtotal.reduce(function(a, b){ return a + b; }))
+
+    
+        const row2=document.createElement('tr');
+        row2.classList.add('muestra-total');
+        row2.innerHTML= `<th colspan="4" class="p-3"><h5>Precio final: ${precioFinal}</h5></th>`;
+        contenedorCarrito.appendChild(row2);
+
+    
 }
 
 function limpiarHTML() {
@@ -186,7 +206,7 @@ function sincronizarStorage() {
     const articulosStorage=JSON.stringify(articulosCarrito);
 
     localStorage.setItem('datos carrito', articulosStorage);
-    console.log('objetoObtenido: ', JSON.parse(articulosStorage));
+    console.log('Carrito actualizado: ', JSON.parse(articulosStorage));
 }
 
 function calcularTotal() {

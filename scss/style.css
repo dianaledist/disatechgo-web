@@ -78,6 +78,10 @@ ul {
   height: 30px;
 }
 
+.muestra-total {
+  text-align: center;
+}
+
 /* footer {
     background-color:rgba(28,48,128,1) !important;
 } */
@@ -173,6 +177,12 @@ p {
   font-size: 1.5rem !important;
 }
 
+.boton-compra {
+  background: radial-gradient(circle, #1c3080 0%, #921768 100%) !important;
+  margin-bottom: 3%;
+  color: white !important;
+}
+
 .button,
 button,
 input[type="submit"],
@@ -239,7 +249,7 @@ input[type="button"].button-primary:focus {
 }
 
 .borrar-servicio {
-  background-color: red;
+  background-color: #db1ec2;
   border-radius: 50%;
   padding: 5px 10px;
   text-decoration: none;
@@ -249,7 +259,7 @@ input[type="button"].button-primary:focus {
 
 .cantidad-servicio {
   display: none;
-  background-color: red;
+  background-color: #db1ec2;
   border-radius: 50%;
   padding: 5px 10px;
   text-decoration: none;
