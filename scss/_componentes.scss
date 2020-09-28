@@ -1,3 +1,13 @@
+.home_boton {
+  font-size: 1.5rem !important;
+}
+.boton-compra{
+background: radial-gradient(circle, rgba(28,48,128,1) 0%, rgba(146,23,104,1) 100%) !important;
+margin-bottom:3%;
+color: white !important;
+}
+
+
 .button,
 button,
 input[type="submit"],
@@ -55,11 +65,21 @@ input[type="button"].button-primary:focus {
   background-color: #9f1edb;
   border-color:  #9f1edb; }
 
-  .borrar-curso {
-    background-color: red;
+  .borrar-servicio {
+    background-color:#db1ec2;;
     border-radius: 50%;
     padding: 5px 10px;
     text-decoration: none;
     color: white;
     font-weight: bold;
+}
+
+.cantidad-servicio {
+  display:none;
+  background-color:#db1ec2;;
+  border-radius: 50%;
+  padding: 5px 10px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
 }

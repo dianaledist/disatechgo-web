@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 .nav {
-  background-color: whitesmoke;
+  background-color: white;
 }
 
 /* .header_home {
@@ -12,16 +12,22 @@
     justify-content: center;
 
 } */
+.icon-user {
+  padding: 3%;
+}
+
 .header_nav-links {
   font-size: 2rem;
 }
 
 .header_nav-shop {
-  border-color: black !important;
+  border: 1px solid black !important;
+  border-radius: 5px 5px 5px 5px;
+  width: 40px;
 }
 
 .header_nav-shop:hover {
-  background-color: #d54af8 !important;
+  background-color: #c94fa0 !important;
 }
 
 ul {
@@ -44,8 +50,8 @@ ul {
   z-index: 1;
   background-color: white;
   padding: 20px;
-  min-height: 400px;
-  min-width: 300px;
+  min-height: 100vh;
+  min-width: 450px;
 }
 
 .u-full-width {
@@ -66,6 +72,14 @@ ul {
 
 .u-pull-left {
   float: left;
+}
+
+.tablas {
+  height: 30px;
+}
+
+.muestra-total {
+  text-align: center;
 }
 
 /* footer {
@@ -115,13 +129,19 @@ h3 {
   font-size: 2rem !important;
 }
 
-h6 {
+h5 {
   font-family: 'Montserrat', sans-serif;
-  font-size: 2rem !important;
-  font-weight: bold !important;
+  font-size: 1.6rem !important;
+  margin-right: 1%;
 }
 
-.home_boton {
+h6 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.3rem !important;
+}
+
+p {
+  font-family: 'Montserrat', sans-serif;
   font-size: 1.5rem !important;
 }
 
@@ -149,31 +169,20 @@ h6 {
   font-size: 22px;
 }
 
-/* 
-////Hacer una variable para el estilo de la caja
-
-.home_pricing-web {
-    border-radius: 5px 5px 5px 5px;
-    border: 2px solid #0c0758;
-    background-color: rgb(101, 137, 238);
-    margin-bottom: 2%;
+.card-text {
+  text-align: right;
 }
 
-.home_pricing-branding {
-    border-radius: 5px 5px 5px 5px;
-    border: 2px solid #0c0758;
-    background-color: rgb(101, 137, 238);
-    margin-bottom: 2%;
+.home_boton {
+  font-size: 1.5rem !important;
 }
 
-.home_pricing-comunicacion {
-    border-radius: 5px 5px 5px 5px;
-    border: 2px solid #0c0758;
-    background-color: rgb(101, 137, 238);
-    margin-bottom: 2%;
+.boton-compra {
+  background: radial-gradient(circle, #1c3080 0%, #921768 100%) !important;
+  margin-bottom: 3%;
+  color: white !important;
 }
 
- */
 .button,
 button,
 input[type="submit"],
@@ -239,8 +248,18 @@ input[type="button"].button-primary:focus {
   border-color: #9f1edb;
 }
 
-.borrar-curso {
-  background-color: red;
+.borrar-servicio {
+  background-color: #db1ec2;
+  border-radius: 50%;
+  padding: 5px 10px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+.cantidad-servicio {
+  display: none;
+  background-color: #db1ec2;
   border-radius: 50%;
   padding: 5px 10px;
   text-decoration: none;

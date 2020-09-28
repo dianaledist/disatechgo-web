@@ -1,5 +1,5 @@
 .nav {
-    background-color: whitesmoke;
+    background-color: white;
 
 }
 
@@ -13,14 +13,21 @@
 
 } */
 
+
+.icon-user {
+padding: 3%;
+}
+
 .header_nav-links {
     font-size: 2rem;
 }
 
 .header_nav-shop {
-    border-color: black !important;
+    border: 1px solid black !important;
+    border-radius: 5px 5px 5px 5px;
+    width: 40px;
     &:hover {
-        background-color: rgb(213, 74, 248) !important;
+        background-color: rgb(201, 79, 160) !important;
     }
 }
 
@@ -44,9 +51,11 @@ ul {
     z-index: 1;
     background-color: white;
     padding: 20px;
-    min-height: 400px;
-    min-width: 300px;
+    min-height: 100vh;
+    min-width: 450px;
 }
+
+
 
 .u-full-width {
     width: 100%;
@@ -59,3 +68,10 @@ ul {
   .u-pull-left {
     float: left; }
   
+.tablas {
+    height: 30px;
+}
+
+.muestra-total{
+    text-align: center;
+}
