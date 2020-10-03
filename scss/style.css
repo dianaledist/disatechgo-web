@@ -34,26 +34,34 @@ ul {
   list-style: none;
 }
 
-.submenu {
-  position: relative;
-}
-
 .submenu #carrito {
   display: none;
-}
-
-.submenu:hover #carrito {
-  display: block;
   position: absolute;
   right: 0;
-  top: 100%;
+  top: 10;
+  width: 25%;
   z-index: 1;
   background-color: white;
   padding: 20px;
-  min-height: 100vh;
+  min-height: 90vh;
   min-width: 450px;
 }
 
+/* .submenu:hover #carrito{
+    display: block;
+    position: absolute;
+    right:0;
+    top:10;
+    width: 25%;
+    border: 1px solid red;
+    
+
+    z-index: 1;
+    background-color: white;
+    padding: 20px;
+    min-height: 95vh;
+    min-width: 450px;
+} */
 .u-full-width {
   width: 100%;
   -webkit-box-sizing: border-box;
@@ -145,6 +153,10 @@ p {
   font-size: 1.5rem !important;
 }
 
+.home-text {
+  color: white !important;
+}
+
 #lista-cursos .row {
   margin-bottom: 20px;
 }
@@ -180,6 +192,11 @@ p {
 .boton-compra {
   background: radial-gradient(circle, #1c3080 0%, #921768 100%) !important;
   margin-bottom: 3%;
+  color: white !important;
+}
+
+.login-user {
+  background: radial-gradient(circle, #1c3080 0%, #921768 100%) !important;
   color: white !important;
 }
 
