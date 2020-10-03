@@ -52,22 +52,41 @@ function cargarEventListeners(){
     })
 }
 
+var nombre=document.querySelector(".nombre-user").value;
+var welcome=document.querySelector(".home_bienvenida");
+console.log(nombre);
+
 
 function loginUser(){
     const nombreUser=document.querySelector('#orangeForm-name').value;
-const mailUser=document.querySelector('#orangeForm-email').value;
-const passwordUser=document.querySelector('#orangeForm-pass').value;
+    const mailUser=document.querySelector('#orangeForm-email').value;
+    const passwordUser=document.querySelector('#orangeForm-pass').value;
 
-console.log(nombreUser);
+/* console.log(nombreUser); */
 if (!nombreUser|| !mailUser || !passwordUser) {
-    alert("Ingrese sus datos para una mejor experiencia :D")
+
+    alert("Ingrese sus datos para una mejor experiencia :D");
+      
 } else {
     localStorage.setItem(nombreUser,mailUser);
+    console.log(nombreUser);
     const bienvenida=document.createElement('div');
-    bienvenida.classList.add('nombre-user');
-    bienvenida.innerHTML= `Hola ${nombreUser}`;  
+    bienvenida.classList.add('home_bienvenida');
+    bienvenida.innerHTML= `<h2 class="home-text">Hola ${nombreUser}<h2> <br> <h3 class="home-text">Has ingresado a tu sección privada en <strong>disatechgo</strong>. Esperamos que disfrutes de esta experiencia digital! <br>
+    Descubrí los servicios que tenemos para ofrecerte!</h3>`;  
+    welcome.appendChild(bienvenida);
+
+    $('.login-user').submit(function(e) {
+        e.preventDefault();
+        // Coding
+        $('#modalRegisterFor').fadeout(2000);
+        $('#modalRegisterFor').modal('toggle'); 
+        return false;
+    });
 }
 }
+
+
 
 function agregarCarrito(e){
 
@@ -111,7 +130,6 @@ function leerDatosServicio(servicio) {
         articulosCarrito=[...articulosCarrito, infoServicio];
         
     }
-
 
 carritoHTML();
 }
@@ -190,11 +208,12 @@ function carritoHTML(){
     
         const row2=document.createElement('tr');
         row2.classList.add('muestra-total');
-        row2.innerHTML= `<th colspan="4" class="p-3"><h5>Precio final: ${precioFinal}</h5></th>`;
+        row2.innerHTML= `<th colspan="4" class="p-3"><div><h5>Precio final: <span class="precio-final">${precioFinal}</span></h5></div></th>`;
         contenedorCarrito.appendChild(row2);
-
-    
+   
 }
+
+
 
 function limpiarHTML() {
     while(contenedorCarrito.firstChild) {
@@ -212,7 +231,45 @@ function sincronizarStorage() {
 function calcularTotal() {
 
 }
+
+
+///////// jQUERY Animations
+
+$(document).ready(function() 
+{
+     $(function() {
+        $('#button-animate').click(function(){
+            
+            $("#carrito").fadeToggle(); 
+        });
+    });
    
+
+    $(".agregar-servicio").click(function() {
+        doBounce($(this),1, '5px',100);   
+    });
+    
+    $("#vaciar-carrito").click(function() {
+        doBounce($(this),1, '5px',100);   
+    });
+
+  
+    function doBounce(element, times, distance, speed) {
+        for(i = 0; i < times; i++) {
+            element.animate({marginTop: '-='+distance},speed)
+                .animate({marginTop: '+='+distance},speed);
+        }        
+    }
+  
+    /* var precio2=$(".precio-final").text();
+
+    $(".precio-html").html("<h5>Tu servicio cuesta: "+precio2+"<h5>");
+ 
+    console.log(precio2); */
+});
+
+
+
 
 
 //acceder a cada propiedad del objeto del array mediante map

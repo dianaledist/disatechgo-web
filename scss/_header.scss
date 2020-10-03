@@ -35,25 +35,38 @@ ul {
     list-style: none;
 }
 
-.submenu {
-    position: relative;
-}
+
 
 .submenu #carrito{
     display: none;
-}
-.submenu:hover #carrito{
-    display: block;
     position: absolute;
     right:0;
+    top:10;
+    width: 25%;
+    
 
-    top:100%;
     z-index: 1;
     background-color: white;
     padding: 20px;
-    min-height: 100vh;
+    min-height: 90vh;
     min-width: 450px;
 }
+
+/* .submenu:hover #carrito{
+    display: block;
+    position: absolute;
+    right:0;
+    top:10;
+    width: 25%;
+    border: 1px solid red;
+    
+
+    z-index: 1;
+    background-color: white;
+    padding: 20px;
+    min-height: 95vh;
+    min-width: 450px;
+} */
 
 
 
