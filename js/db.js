@@ -49,5 +49,5 @@ const servicios = [
     },
 ];
 
-
+export { servicios };
 /* console.log(servicios); */

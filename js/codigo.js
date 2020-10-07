@@ -1,3 +1,5 @@
+import { servicios } from './db.js';
+
 /* function login() {
     const nombre =document.querySelector('#inputname').value;
     const edad =document.querySelector('#inputedad').value;
@@ -111,7 +113,7 @@ function leerDatosServicio(servicio) {
     }
 
     const existe = articulosCarrito.some(servicio=> servicio.id===infoServicio.id);
-/*     console.log(existe); */
+    console.log(existe); 
 
     if(existe){
         const service =articulosCarrito.map(items=> {
@@ -164,8 +166,8 @@ function carritoHTML(){
 
     limpiarHTML();
     
-    arraySubtotal=[];
-    total=0;
+    let arraySubtotal=[];
+    let total=0;
 
     articulosCarrito.forEach( servicio => {
         /* console.log(servicio); */
@@ -202,8 +204,8 @@ function carritoHTML(){
 
     });
     console.log(arraySubtotal);
-    const precioFinal=(arraySubtotal.reduce(function(a, b){ return a + b; }));
-    console.log(arraySubtotal.reduce(function(a, b){ return a + b; }))
+    const precioFinal=(arraySubtotal === undefined || arraySubtotal.length == 0) ? 0 : (arraySubtotal.reduce(function(a, b){ return a + b; }));
+    console.log(precioFinal)
 
     
         const row2=document.createElement('tr');
@@ -255,7 +257,7 @@ $(document).ready(function()
 
   
     function doBounce(element, times, distance, speed) {
-        for(i = 0; i < times; i++) {
+        for(let i = 0; i < times; i++) {
             element.animate({marginTop: '-='+distance},speed)
                 .animate({marginTop: '+='+distance},speed);
         }        
