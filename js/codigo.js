@@ -161,6 +161,13 @@ function vaciarCarrito(e){
         carritoHTML();
     }
 
+function calcPrecioFinal(precios) {
+    if (precios === undefined || precios.length == 0) {
+        return 0;
+    } else {
+        return arraySubtotal.reduce(function(a, b){ return a + b; });
+    }
+}
 
 function carritoHTML(){
 
@@ -204,7 +211,7 @@ function carritoHTML(){
 
     });
     console.log(arraySubtotal);
-    const precioFinal=(arraySubtotal === undefined || arraySubtotal.length == 0) ? 0 : (arraySubtotal.reduce(function(a, b){ return a + b; }));
+    const precioFinal=calcPrecioFinal(arraySubtotal);
     console.log(precioFinal)
 
     
