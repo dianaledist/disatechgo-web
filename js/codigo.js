@@ -165,7 +165,7 @@ function calcPrecioFinal(precios) {
     if (precios === undefined || precios.length == 0) {
         return 0;
     } else {
-        return arraySubtotal.reduce(function(a, b){ return a + b; });
+        return precios.reduce(function(a, b){ return a + b; });
     }
 }
 
