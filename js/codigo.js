@@ -260,6 +260,30 @@ $(document).ready(function()
                 .animate({marginTop: '+='+distance},speed);
         }        
     }
+
+    $.ajax({
+        url: 'bbdd.json',
+        dataType: "json",
+        success: function(data) {
+            data.forEach(element => {
+                /* $('.precio-html.text-center').append(`<p>Servicio: ${element.tipo} - Precio: ${element.precio}<p>`) */
+                $('#grilla_servicios').append(`            
+                    <div class="card" style="width: 25rem">
+                        <img class="card-img-top" src="${element.imagen}" alt="Card image"><div class="card-body">
+                        <h5 class="card-title">${element.tipo}</h5>
+                        <p class="card-text">${element.precio}</p>
+                        <a href="#" class="u-full-width button-primary button input agregar-servicio" data-id="${element.id}">Agregar Al Carrito</a>
+                    </div>`)
+  
+            });
+            /* $('.grilla_servicios').append(JSON.stringify(data)) */
+        },
+        error: function (jqXHR, status, error) {
+            console.log("error")
+            console.log(jqXHR)
+            console.log(`Error => Status: ${status} - Error: ${error}`)
+        }
+    })
   
     /* var precio2=$(".precio-final").text();
 
@@ -303,3 +327,6 @@ function armarCards(){
     }
 }
 
+
+var bbddJSON = JSON.stringify(servicios);
+console.log(bbddJSON)
