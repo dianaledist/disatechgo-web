@@ -291,5 +291,6 @@ $(document).ready(function()
 });
 
 
-var bbddJSON = JSON.stringify(servicios);
+/* var bbddJSON = JSON.stringify(servicios);
 console.log(bbddJSON)
+ */
