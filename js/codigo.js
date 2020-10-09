@@ -265,7 +265,7 @@ $(document).ready(function()
         url: 'bbdd.json',
         dataType: "json",
         success: function(data) {
-            data.forEach(element => {
+            data.forEach(element => {            
                 /* $('.precio-html.text-center').append(`<p>Servicio: ${element.tipo} - Precio: ${element.precio}<p>`) */
                 $('#grilla_servicios').append(`            
                     <div class="card" style="width: 25rem">
@@ -273,10 +273,9 @@ $(document).ready(function()
                         <h5 class="card-title">${element.tipo}</h5>
                         <p class="card-text">${element.precio}</p>
                         <a href="#" class="u-full-width button-primary button input agregar-servicio" data-id="${element.id}">Agregar Al Carrito</a>
-                    </div>`)
-  
+                    </div>`)          
             });
-            /* $('.grilla_servicios').append(JSON.stringify(data)) */
+
         },
         error: function (jqXHR, status, error) {
             console.log("error")
@@ -284,48 +283,12 @@ $(document).ready(function()
             console.log(`Error => Status: ${status} - Error: ${error}`)
         }
     })
-  
     /* var precio2=$(".precio-final").text();
 
     $(".precio-html").html("<h5>Tu servicio cuesta: "+precio2+"<h5>");
  
     console.log(precio2); */
 });
-
-
-
-
-
-//acceder a cada propiedad del objeto del array mediante map
-const imagencard = servicios.map(function(laimagen) {
-    return laimagen.imagen;
-    });
-const tipocard = servicios.map(function(laimagen) {
-    return laimagen.tipo;
-    });
-const preciocard = servicios.map(function(laimagen) {
-    return laimagen.precio;
-    });
-const idcard = servicios.map(function(laimagen) {
-    return laimagen.id;
-    });
-
-armarCards();
-
-function armarCards(){
-    for (let j = 0; j<servicios.length; j++) { 
-        let cards=document.createElement('div');
-        cards.classList.add("card");
-        cards.style="width: 25rem";
-      /*   console.log(cards); */
-        cards.innerHTML= `<img class="card-img-top" src="${imagencard[j]}" alt="Card image cap${j+1}"><div class="card-body">
-          <h5 class="card-title">${tipocard[j]}</h5>
-          <p class="card-text">${preciocard[j]}</p>
-          <a href="#" class="u-full-width button-primary button input agregar-servicio" data-id="${idcard[j]}">Agregar Al Carrito</a>
-        </div>`;
-        divServicios.appendChild(cards);
-    }
-}
 
 
 var bbddJSON = JSON.stringify(servicios);
