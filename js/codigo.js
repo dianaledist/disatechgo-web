@@ -3,7 +3,6 @@ const contenedorCarrito=document.querySelector('#lista-carrito tbody');
 const botonCompra=document.querySelector('.boton-compra')
 const vaciarCarritobtn=document.querySelector('#vaciar-carrito');
 const btnVolver=document.querySelector('#button-return');
-
 const divServicios = document.querySelector("#grilla_servicios");
 
 const variableCarrito=document.querySelector("#cantidadP");
