@@ -1,7 +1,35 @@
-footer {
-    background-color: whitesmoke !;
-}
+/* footer {
+    background-color:rgba(28,48,128,1) !important;
+} */
 
 .footer_li {
     font-size: 1.5rem;
+}
+
+
+.btn-flotante {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    padding: .5rem 2rem;
+    background-color: rgb(167, 117, 214);
+    -webkit-box-shadow: 0px 6px 32px -10px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 6px 32px -10px rgba(0,0,0,0.75);
+    box-shadow: 0px 6px 32px -10px rgba(0,0,0,0.75);
+
+    text-decoration: none;
+}
+
+.text-footer {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem !important;
+    color: rgb(157, 208, 231) !important;
+}
+
+.enlaces_footer {
+    color: rgb(211, 174, 208);
+
+    &:hover {
+        color: white !important;
+    }
 }

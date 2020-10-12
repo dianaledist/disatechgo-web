@@ -1,0 +1,108 @@
+ <section class="tienda" id="tienda">
+    <div class="titulo-tienda text-center container-fluid">
+    
+        <!-- grilla de productos -->
+      
+        <div id="lista-cursos" class="container justify-content-center">
+          <h2>
+            Cotizá tu presupuesto en un instante!
+          </h2>
+          <div class="row">
+              <div class="four columns">
+                  <div class="card">                
+                      <div class="info-card">
+                          <h4>Diseño web</h4>
+<!--                           <img src="img/estrellas.png"> -->
+                          <p class="precio">$200  <span class="u-pull-right ">$15</span></p>
+                          <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="1">Agregar Al Carrito</a>
+                      </div>
+                  </div> <!--.card-->
+              </div>
+              <div class="four columns">
+                      <div class="card">
+                          <div class="info-card">
+                              <h4>Diseño gráfico</h4>
+ <!--                              <img src="img/estrellas.png"> -->
+                              <p class="precio">$200  <span class="u-pull-right ">$15</span></p>
+                              <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="2">Agregar Al Carrito</a>
+                          </div>
+                      </div>
+              </div>
+              <div class="four columns">
+                      <div class="card">
+                          <div class="info-card">
+                              <h4>Branding</h4>
+<!--                               <img src="img/estrellas.png"> -->
+                              <p class="precio">$200  <span class="u-pull-right ">$15</span></p>
+                              <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="3">Agregar Al Carrito</a>
+                          </div>
+                      </div> <!--.card-->
+              </div>
+            </div>
+          
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+
+  cargarEventListeners ();
+function cargarEventListeners(){
+    listaCursos.addEventListener('click',agregarCarrito);
+}
+
+function agregarCarrito(e){
+
+    if(e.target.classList.contains('agregar-carrito')){
+        const servicioSeleccionado=e.target.parentElement.parentElement;
+/*      console.log(cursoSeleccionado);
+
+        console.log(e.target.parentElement.parentElement);
+        console.log('Agregando al carrito...') */
+
+        leerDatosServicio(servicioSeleccionado);
+    }    
+}
+
+function leerDatosServicio(servicio) {
+    
+    articulosCarrito=[...articulosCarrito, servicios];
+
+
+    carritoHTML();
+}
+
+function carritoHTML(){
+
+    limpiarHTML();
+
+    articulosCarrito.forEach( servicio => {
+ /*        console.log(servicio); */
+        const row = document.createElement('tr');
+        row.innerHTML = `
+        <td>
+        ${servicio.titulo}
+        </td>
+        <td>
+        ${servicio.precio}
+        </td>
+        <td>
+        ${servicio.cantidad}
+        </td>
+        `;
+
+        contenedorCarrito.appendChild(row);
+    });
+/*     console.log(articulosCarrito); */
+}
+
+function limpiarHTML() {
+    while(contenedorCarrito.firstChild) {
+        contenedorCarrito.removeChild(contenedorCarrito.firstChild)
+    }
+}

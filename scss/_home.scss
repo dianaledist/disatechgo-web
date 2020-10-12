@@ -1,5 +1,26 @@
-.home_pricing {
-    border-radius: 20px 20px 20px 20px;
-    border: 2px solid #0c0758;
-    background-color: rgb(101, 137, 238);
+
+#lista-cursos .row {
+    margin-bottom:20px;
+}
+
+.info-card  {
+    padding: 10px 20px;
+}
+
+.info-card p, 
+.card h4 {
+    margin-bottom: 5px;
+}
+.info-card .precio {
+    text-decoration: line-through;
+    font-size: 18px;
+    margin-top: 10px;
+}
+.info-card .precio span {
+    font-weight: 700;
+    font-size: 22px;
+}
+
+.card-text{
+    text-align: right;
 }
