@@ -25,11 +25,14 @@ padding: 3%;
 .header_nav-shop {
     border: 1px solid black !important;
     border-radius: 5px 5px 5px 5px;
+    background-color: white !important;
+    
     width: 40px;
     &:hover {
-        background-color: rgb(201, 79, 160) !important;
+        background-color: $color-primario !important;
     }
 }
+
 
 ul {
     list-style: none;
@@ -51,23 +54,6 @@ ul {
     min-height: 90vh;
     min-width: 450px;
 }
-
-/* .submenu:hover #carrito{
-    display: block;
-    position: absolute;
-    right:0;
-    top:10;
-    width: 25%;
-    border: 1px solid red;
-    
-
-    z-index: 1;
-    background-color: white;
-    padding: 20px;
-    min-height: 95vh;
-    min-width: 450px;
-} */
-
 
 
 .u-full-width {

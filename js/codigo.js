@@ -100,9 +100,7 @@ function agregarCarrito(e){
 
         leerDatosServicio(servicioSeleccionado);
 
-        calcularTotal();
-
-         
+        calcularTotal();         
     }    
 }
 
@@ -263,6 +261,7 @@ $(document).ready(function()
                     </div>`)          
             });
 
+           
 
             $(".agregar-servicio").click(function() {
                 doBounce($(this),1, '5px',100); 
@@ -275,20 +274,30 @@ $(document).ready(function()
                             'top' : parseInt(offset.top-$(window).scrollTop()) + 'px',
                             'width' :  $(this).parent().width() + 'px',
                             'height' : $(this).parent().height() + 'px'
+                            
                         }).appendTo($('#grilla_servicios').parent());
                         
-                        
+                                           
+                        /* $('#button-animate').delay(800).css("background-color", "blue"); */
+
+                        /* $('#button-animate').toggle(function () {
+                            $("#button-animate").css({
+                                "background-color": "yellow",
+                                "font-weight": "bolder"
+                            },500)
+                        }, function () {
+                            $("#button-animate").css({
+                                "background-color": "white",
+                                "font-weight": "bolder"
+                            },500)
+                        }); */                  
 
                         var cart = $('#button-animate').offset();
                         $('.card-clone').animate( { top: parseInt(cart.top-$(window).scrollTop()) + 'px', left: cart.left + 'px', 'height': '0px', 'width': '0px' }, 800, function(){
-                            $(this).remove();
-                           
-                        });
+                            $(this).remove();                           
+                        });                        
                     });
                 }   
-
-
-
             });
                 
         },
@@ -319,7 +328,12 @@ $(document).ready(function()
     $("#vaciar-carrito").click(function() {
         doBounce($(this),1, '5px',100);   
     });
-
+    
+            
+  /*   $("#boton-compra").click(function() {
+        $('#carrito').slideToggle('slow');
+        console.log("JHE")
+    }); */
     
     /* var precio2=$(".precio-final").text();
 
@@ -334,6 +348,5 @@ console.log(bbddJSON)
  */
 
 function realizarCompra(){
-    console.log("COMPRANDO GUACHIN");
-    
+    $('#carrito').html('<h3 class="text-center p-3">Ingrese sus datos</h3><p><input type="text" class="input_form u-full-width" placeholder="Nombre completo"></p><p><input type="text" class="input_form u-full-width" placeholder="XXXX-XXXX-XXXX-XXXX"></p><p><input type="text" class="input_form u-full-width" placeholder="Dirección"></p><p><input type="text" class="input_form u-full-width" placeholder="E-mail"></p><p><input type="text" class="input_form u-full-width" placeholder="Pedido especial"></p><a class="button u-full-width boton-compra"> Continuar pago');
 }
