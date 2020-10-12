@@ -256,7 +256,6 @@ $(document).ready(function()
                             'height' : $(this).parent().height() + 'px'
                             
                         }).appendTo($('#grilla_servicios').parent());
-                        
                                            
                         /* $('#button-animate').delay(800).css("background-color", "blue"); */
 
