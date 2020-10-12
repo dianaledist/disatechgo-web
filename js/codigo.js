@@ -324,10 +324,12 @@ console.log(bbddJSON)
  */
 
 function realizarCompra(){
-    $('#carrito').html('<h3 class="text-center p-3">Ingrese sus datos</h3><p><input type="text" class="input_form u-full-width" placeholder="Nombre completo"></p><p><input type="text" class="input_form u-full-width" placeholder="XXXX-XXXX-XXXX-XXXX"></p><p><input type="text" class="input_form u-full-width" placeholder="Dirección"></p><p><input type="text" class="input_form u-full-width" placeholder="E-mail"></p><p><input type="text" class="input_form u-full-width" placeholder="Pedido especial"></p><a class="button u-full-width boton-compra" onclick="procesarPago()"> Finalizar pago<a class="button u-full-width button-return" onclick="volverCarrito()"> Volver');
+    $('#carrito').html('<div class="permanente"><div class="dinamico"><h3 class="text-center p-3">Ingrese sus datos</h3><p><input type="text" class="input_form u-full-width" placeholder="Nombre completo"></p><p><input type="text" class="input_form u-full-width" placeholder="XXXX-XXXX-XXXX-XXXX"></p><p><input type="text" class="input_form u-full-width" placeholder="Dirección"></p><p><input type="text" class="input_form u-full-width" placeholder="E-mail"></p><p><input type="text" class="input_form u-full-width" placeholder="Pedido especial"></p><a class="button u-full-width boton-compra" onclick="procesarPago()"> Finalizar pago<a class="button u-full-width button-return" onclick="volverCarrito()"> Volver</div></div>');
 }
 
 function procesarPago(){
     $('#carrito').html('<h3 class="text-center p-3">Has contratado los servicios con éxito</h3>');
+    vaciarCarrito();
+
 }
 
