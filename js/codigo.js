@@ -1,27 +1,8 @@
-/* function login() {
-    const nombre =document.querySelector('#inputname').value;
-    const edad =document.querySelector('#inputedad').value;
-
-    if (!nombre) {
-        alert("debe ingresar un nombre!")
-    } else if (edad<0 || edad>99) {
-        alert("Ingrese edad correcta")
-    } else {
-        localStorage.setItem(nombre,edad);
-        const bienvenida2=document.querySelector("h2");
-        bienvenida2.textContent= `Hola ${nombre}, tienes ${edad}`;  
-    }
-
-    console.log("Hola");
-    console.log(nombre);
-    console.log(edad);
-} */
-
-
 const carrito=document.querySelector('#carrito');
 const contenedorCarrito=document.querySelector('#lista-carrito tbody');
 const botonCompra=document.querySelector('.boton-compra')
 const vaciarCarritobtn=document.querySelector('#vaciar-carrito');
+const btnVolver=document.querySelector('#button-return');
 
 const divServicios = document.querySelector("#grilla_servicios");
 
@@ -329,11 +310,6 @@ $(document).ready(function()
         doBounce($(this),1, '5px',100);   
     });
     
-            
-  /*   $("#boton-compra").click(function() {
-        $('#carrito').slideToggle('slow');
-        console.log("JHE")
-    }); */
     
     /* var precio2=$(".precio-final").text();
 
@@ -348,5 +324,10 @@ console.log(bbddJSON)
  */
 
 function realizarCompra(){
-    $('#carrito').html('<h3 class="text-center p-3">Ingrese sus datos</h3><p><input type="text" class="input_form u-full-width" placeholder="Nombre completo"></p><p><input type="text" class="input_form u-full-width" placeholder="XXXX-XXXX-XXXX-XXXX"></p><p><input type="text" class="input_form u-full-width" placeholder="Dirección"></p><p><input type="text" class="input_form u-full-width" placeholder="E-mail"></p><p><input type="text" class="input_form u-full-width" placeholder="Pedido especial"></p><a class="button u-full-width boton-compra"> Continuar pago');
+    $('#carrito').html('<h3 class="text-center p-3">Ingrese sus datos</h3><p><input type="text" class="input_form u-full-width" placeholder="Nombre completo"></p><p><input type="text" class="input_form u-full-width" placeholder="XXXX-XXXX-XXXX-XXXX"></p><p><input type="text" class="input_form u-full-width" placeholder="Dirección"></p><p><input type="text" class="input_form u-full-width" placeholder="E-mail"></p><p><input type="text" class="input_form u-full-width" placeholder="Pedido especial"></p><a class="button u-full-width boton-compra" onclick="procesarPago()"> Finalizar pago<a class="button u-full-width button-return" onclick="volverCarrito()"> Volver');
 }
+
+function procesarPago(){
+    $('#carrito').html('<h3 class="text-center p-3">Has contratado los servicios con éxito</h3>');
+}
+
