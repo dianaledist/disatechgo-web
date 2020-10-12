@@ -24,6 +24,14 @@ html {
 
 }
 
+.card-clone {
+    position: fixed;
+    z-index: 9999;
+    background-color: #db1ec2 !important;
+    margin-top: 3% !important;
+    border-radius: 5px 5px 5px 5px !important;
+  }
+
 #grilla_servicios {
     margin: 1% !important;
   

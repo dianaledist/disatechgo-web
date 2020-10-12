@@ -57,26 +57,28 @@
             </div>
             <div class="modal-body mx-3">
               <div class="md-form mb-5">
-                <i class="fas fa-user prefix grey-text"></i>
-                <input type="text" id="orangeForm-name" class="form-control validate nombre-user">
-                <label data-error="wrong" data-success="right" for="orangeForm-name">Tu nombre</label>
-              </div>
-              <div class="md-form mb-5">
-                <i class="fas fa-envelope prefix grey-text"></i>
-                <input type="email" id="orangeForm-email" class="form-control validate">
-                <label data-error="wrong" data-success="right" for="orangeForm-email">Tu e-mail</label>
-              </div>
+                <form action="index.php" method="post">
+                  <i class="fas fa-user prefix grey-text"></i>
+                  <input type="text" id="orangeForm-name" class="form-control validate nombre-user">
+                  <label data-error="wrong" data-success="right" for="orangeForm-name">Tu nombre</label>
+                  </div>
+                  <div class="md-form mb-5">
+                    <i class="fas fa-envelope prefix grey-text"></i>
+                    <input type="email" id="orangeForm-email" class="form-control validate">
+                    <label data-error="wrong" data-success="right" for="orangeForm-email">Tu e-mail</label>
+                  </div>
 
-              <div class="md-form mb-4">
-                <i class="fas fa-lock prefix grey-text"></i>
-                <input type="password" id="orangeForm-pass" class="form-control validate">
-                <label data-error="wrong" data-success="right" for="orangeForm-pass">Tu contraseña</label>
-              </div>
+                  <div class="md-form mb-4">
+                    <i class="fas fa-lock prefix grey-text"></i>
+                    <input type="password" id="orangeForm-pass" class="form-control validate">
+                    <label data-error="wrong" data-success="right" for="orangeForm-pass">Tu contraseña</label>
+                  </div>
 
-            </div>
-            <div class="modal-footer d-flex justify-content-center">
-              <button type="submit" class=" button u-full-width login-user" data-dismiss="modal">Comenzar la aventura</button>
-            </div>
+                  </div>
+                  <div class="modal-footer d-flex justify-content-center">
+                    <input type="submit" class="button u-full-width login-user" data-dismiss="modal" value="Comenzar la aventura">
+                  </div>
+                </form>
           </div>
         </div>
       </div>
@@ -89,12 +91,12 @@
             </ul>
 
             <ul>
-              <li class="submenu ">
+              <li class="submenu">
                 
                 <div class="header_nav-shop" id="button-animate">
                   <div class="p-2 m-2 row justify-content-center">                    
                     <i class="fas fa-store fa-2x fa-lg"></i>
-                    <span class="cantidad-servicio" id="cantidadP">0</span>
+                 <!--    <span class="cantidad-servicio" id="cantidadP">0</span> -->
                   </div>
                   
                 </div>
@@ -127,6 +129,7 @@
 
   </header>
 
+
 <div class="home_bienvenida container-fluid">
   <h2></h2>
 </div>
@@ -134,9 +137,6 @@
   <div id="grilla_servicios" class="d-flex flex-wrap justify-content-around">
   </div>
 
-  <hr>
-  <div id="grilla_servicios2" class="d-flex flex-wrap justify-content-around">
-  </div>
 
   <div class="precio-html text-center"></div>
 

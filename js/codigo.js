@@ -20,6 +20,7 @@
 
 const carrito=document.querySelector('#carrito');
 const contenedorCarrito=document.querySelector('#lista-carrito tbody');
+const botonCompra=document.querySelector('.boton-compra')
 const vaciarCarritobtn=document.querySelector('#vaciar-carrito');
 
 const divServicios = document.querySelector("#grilla_servicios");
@@ -43,6 +44,7 @@ cargarEventListeners ();
 function cargarEventListeners(){
     divServicios.addEventListener('click',agregarCarrito);
     contenedorCarrito.addEventListener('click',eliminarServicio);
+    botonCompra.addEventListener('click',realizarCompra)
     botonLogin.addEventListener('click',loginUser);
     vaciarCarritobtn.addEventListener('click',vaciarCarrito);
     document.addEventListener('DOMContentLoaded',()=>{
@@ -89,7 +91,7 @@ if (!nombreUser|| !mailUser || !passwordUser) {
 
 
 function agregarCarrito(e){
-
+    
     if(e.target.classList.contains('agregar-servicio')){
         const servicioSeleccionado=e.target.parentElement.parentElement;
 /*         console.log(servicioSeleccionado);
@@ -99,6 +101,8 @@ function agregarCarrito(e){
         leerDatosServicio(servicioSeleccionado);
 
         calcularTotal();
+
+         
     }    
 }
 
@@ -148,6 +152,7 @@ function eliminarServicio(e){
         }
     }
 
+
 function vaciarCarrito(e){
     /*    console.log('hola');
         console.log(articulosCarrito); */
@@ -158,7 +163,6 @@ function vaciarCarrito(e){
         calcularTotal();      
         carritoHTML();
     }
-
 
 function carritoHTML(){
 
@@ -186,7 +190,7 @@ function carritoHTML(){
         <h6>${titulo}</h6>
         </td>
         <td>
-        <h6>${precio}</h6>
+        <h6>€ ${precio}</h6>
         </td>
         <td>
         <h6>${cantidad}</h6>
@@ -202,18 +206,25 @@ function carritoHTML(){
 
     });
     console.log(arraySubtotal);
-    const precioFinal=(arraySubtotal.reduce(function(a, b){ return a + b; }));
-    console.log(arraySubtotal.reduce(function(a, b){ return a + b; }))
 
+    const precioFinal=calcPrecioFinal(arraySubtotal);
+    console.log(precioFinal)
     
         const row2=document.createElement('tr');
         row2.classList.add('muestra-total');
-        row2.innerHTML= `<th colspan="4" class="p-3"><div><h5>Precio final: <span class="precio-final">${precioFinal}</span></h5></div></th>`;
-        contenedorCarrito.appendChild(row2);
-   
+        row2.innerHTML= `<th colspan="4" class="p-3"><div><h5>Precio final: € <span class="precio-final">${precioFinal}</span></h5></div></th>`;
+        contenedorCarrito.appendChild(row2);   
 }
 
+function calcPrecioFinal(precios) {
+    if (precios === undefined || precios.length == 0) {
+        return 0;
+    } else {
+        return precios.reduce(function(a, b){ return a + b; });
+    }
+}
 
+/* const precioFinal=(arraySubtotal === undefined || arraySubtotal.length == 0) ? 0 : (arraySubtotal.reduce(function(a, b){ return a + b; })); */
 
 function limpiarHTML() {
     while(contenedorCarrito.firstChild) {
@@ -237,30 +248,6 @@ function calcularTotal() {
 
 $(document).ready(function() 
 {
-     $(function() {
-        $('#button-animate').click(function(){
-            
-            $("#carrito").fadeToggle(); 
-        });
-    });
-   
-
-    $(".agregar-servicio").click(function() {
-        doBounce($(this),1, '5px',100);   
-    });
-    
-    $("#vaciar-carrito").click(function() {
-        doBounce($(this),1, '5px',100);   
-    });
-
-  
-    function doBounce(element, times, distance, speed) {
-        for(i = 0; i < times; i++) {
-            element.animate({marginTop: '-='+distance},speed)
-                .animate({marginTop: '+='+distance},speed);
-        }        
-    }
-
     $.ajax({
         url: 'bbdd.json',
         dataType: "json",
@@ -272,17 +259,68 @@ $(document).ready(function()
                         <img class="card-img-top" src="${element.imagen}" alt="Card image"><div class="card-body">
                         <h5 class="card-title">${element.tipo}</h5>
                         <p class="card-text">${element.precio}</p>
-                        <a href="#" class="u-full-width button-primary button input agregar-servicio" data-id="${element.id}">Agregar Al Carrito</a>
+                        <a  class="u-full-width button-primary button input agregar-servicio" id="button-bounce" data-id="${element.id}">Agregar Al Carrito</a>
                     </div>`)          
             });
 
+
+            $(".agregar-servicio").click(function() {
+                doBounce($(this),1, '5px',100); 
+                
+                if ( 0 < $('.card').length ) {
+                    $('.agregar-servicio').click(function() {
+                        var offset = $(this).parent().offset();
+                        $(this).parent().clone().addClass('card-clone').css({
+                            'left' : offset.left + 'px',
+                            'top' : parseInt(offset.top-$(window).scrollTop()) + 'px',
+                            'width' :  $(this).parent().width() + 'px',
+                            'height' : $(this).parent().height() + 'px'
+                        }).appendTo($('#grilla_servicios').parent());
+                        
+                        
+
+                        var cart = $('#button-animate').offset();
+                        $('.card-clone').animate( { top: parseInt(cart.top-$(window).scrollTop()) + 'px', left: cart.left + 'px', 'height': '0px', 'width': '0px' }, 800, function(){
+                            $(this).remove();
+                           
+                        });
+                    });
+                }   
+
+
+
+            });
+                
         },
         error: function (jqXHR, status, error) {
             console.log("error")
             console.log(jqXHR)
             console.log(`Error => Status: ${status} - Error: ${error}`)
         }
-    })
+    });
+
+    $(function() {
+        $('#button-animate').click(function(){
+            
+            $("#carrito").fadeToggle(); 
+        });
+        $("#grilla_servicios").click(function(e){
+            $("#carrito").hide(e);
+        });
+    });
+
+    function doBounce(element, times, distance, speed) {
+        for(i = 0; i < times; i++) {
+            element.animate({marginTop: '-='+distance},speed)
+                .animate({marginTop: '+='+distance},speed);
+        }        
+    }
+    
+    $("#vaciar-carrito").click(function() {
+        doBounce($(this),1, '5px',100);   
+    });
+
+    
     /* var precio2=$(".precio-final").text();
 
     $(".precio-html").html("<h5>Tu servicio cuesta: "+precio2+"<h5>");
@@ -294,3 +332,8 @@ $(document).ready(function()
 /* var bbddJSON = JSON.stringify(servicios);
 console.log(bbddJSON)
  */
+
+function realizarCompra(){
+    console.log("COMPRANDO GUACHIN");
+    
+}
