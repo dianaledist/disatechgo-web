@@ -94,7 +94,7 @@ function leerDatosServicio(servicio) {
     }
 
     const existe = articulosCarrito.some(servicio=> servicio.id===infoServicio.id);
-/*     console.log(existe); */
+    console.log(existe); 
 
     if(existe){
         const service =articulosCarrito.map(items=> {
@@ -147,8 +147,8 @@ function carritoHTML(){
 
     limpiarHTML();
     
-    arraySubtotal=[];
-    total=0;
+    let arraySubtotal=[];
+    let total=0;
 
     articulosCarrito.forEach( servicio => {
         /* console.log(servicio); */
@@ -300,7 +300,7 @@ $(document).ready(function()
     });
 
     function doBounce(element, times, distance, speed) {
-        for(i = 0; i < times; i++) {
+        for(let i = 0; i < times; i++) {
             element.animate({marginTop: '-='+distance},speed)
                 .animate({marginTop: '+='+distance},speed);
         }        
