@@ -19,7 +19,6 @@ console.log(valorTotal);
 
 let articulosCarrito=[];
 
-
 cargarEventListeners ();
 
 function cargarEventListeners(){
