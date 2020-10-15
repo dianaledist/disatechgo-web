@@ -236,7 +236,7 @@ $(document).ready(function()
                     <div class="card" style="width: 25rem">
                         <img class="card-img-top" src="${element.imagen}" alt="Card image"><div class="card-body">
                         <h5 class="card-title">${element.tipo}</h5>
-                        <p class="card-text">${element.precio}</p>
+                        <p class="card-text">€ ${element.precio}</p>
                         <a  class="u-full-width button-primary button input agregar-servicio" id="button-bounce" data-id="${element.id}">Agregar Al Carrito</a>
                     </div>`)          
             });
