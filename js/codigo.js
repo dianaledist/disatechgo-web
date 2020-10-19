@@ -1,4 +1,9 @@
+//// Declaración de variables
+
 const carrito=document.querySelector('#carrito');
+const carritoCompleto=document.querySelector('.carrito-completo');
+
+
 const contenedorCarrito=document.querySelector('#lista-carrito tbody');
 const botonCompra=document.querySelector('.boton-compra')
 const vaciarCarritobtn=document.querySelector('#vaciar-carrito');
@@ -17,8 +22,12 @@ console.log(valorTotal);
 /* console.log(navCarrito); */
 /* console.log(divServicios); */
 
+
+//// Array carrito inicial
 let articulosCarrito=[];
 
+
+//// Funcion cargar eventos
 cargarEventListeners ();
 
 function cargarEventListeners(){
@@ -34,6 +43,8 @@ function cargarEventListeners(){
     })
 }
 
+
+//// Pantalla login
 var nombre=document.querySelector(".nombre-user").value;
 var welcome=document.querySelector(".home_bienvenida");
 console.log(nombre);
@@ -43,8 +54,7 @@ function loginUser(){
     const nombreUser=document.querySelector('#orangeForm-name').value;
     const mailUser=document.querySelector('#orangeForm-email').value;
     const passwordUser=document.querySelector('#orangeForm-pass').value;
-
-/* console.log(nombreUser); */
+    /* console.log(nombreUser); */
 if (!nombreUser|| !mailUser || !passwordUser) {
 
     alert("Ingrese sus datos para una mejor experiencia :D");
@@ -69,7 +79,7 @@ if (!nombreUser|| !mailUser || !passwordUser) {
 }
 
 
-
+//// Funcion agregar carrito, al hacer click en boton agregar-servicio
 function agregarCarrito(e){
     
     if(e.target.classList.contains('agregar-servicio')){
@@ -78,12 +88,12 @@ function agregarCarrito(e){
         console.log(e.target.parentElement.parentElement);
         console.log('Agregando al carrito...') */
 
-        leerDatosServicio(servicioSeleccionado);
-
-        calcularTotal();         
+        leerDatosServicio(servicioSeleccionado);   
     }    
 }
 
+
+//// Lectura de datos del servicio seleccionado y activacion de funcion para crear contenido carrito
 function leerDatosServicio(servicio) {
     const infoServicio={
         titulo:servicio.querySelector('.card-title').textContent,
@@ -116,6 +126,8 @@ function leerDatosServicio(servicio) {
 carritoHTML();
 }
 
+
+//// Funcion eliminar servicio en el carrito
 function eliminarServicio(e){
     /*     console.log('eliminar'); */
         if(e.target.classList.contains('borrar-servicio')){
@@ -126,22 +138,22 @@ function eliminarServicio(e){
            sincronizarStorage();
            carritoHTML();
     /*        console.log(articulosCarrito); */
-            calcularTotal();
         }
-    }
+}
 
-
+//// Funcion para vaciar el carrito, borrar localStorage, activacion de funcion para crear contenido carrito
 function vaciarCarrito(e){
     /*    console.log('hola');
         console.log(articulosCarrito); */
         contenedorCarrito.innerHTML = '';
         articulosCarrito.length=0;
         console.log(articulosCarrito);   
-        localStorage.clear()  
-        calcularTotal();      
+        localStorage.clear();      
         carritoHTML();
     }
 
+
+/// Funcion para crear contenido nuevo de servicio seleccionado en el submenu
 function carritoHTML(){
 
     limpiarHTML();
@@ -187,6 +199,8 @@ function carritoHTML(){
 
     const precioFinal=calcPrecioFinal(arraySubtotal);
     console.log(precioFinal)
+
+    localStorage.setItem('precio-final', precioFinal);
     
         const row2=document.createElement('tr');
         row2.classList.add('muestra-total');
@@ -217,12 +231,8 @@ function sincronizarStorage() {
     console.log('Carrito actualizado: ', JSON.parse(articulosStorage));
 }
 
-function calcularTotal() {
 
-}
-
-
-///////// jQUERY Animations
+///////// jQUERY Animations y AJAX
 
 $(document).ready(function() 
 {
@@ -236,8 +246,8 @@ $(document).ready(function()
                     <div class="card" style="width: 25rem">
                         <img class="card-img-top" src="${element.imagen}" alt="Card image"><div class="card-body">
                         <h5 class="card-title">${element.tipo}</h5>
-                        <p class="card-text">€ ${element.precio}</p>
-                        <a  class="u-full-width button-primary button input agregar-servicio" id="button-bounce" data-id="${element.id}">Agregar Al Carrito</a>
+                        <p class="text-right">€<span class="card-text">${element.precio}</span></p>
+                        <a class="u-full-width button-primary button input agregar-servicio" id="button-bounce" data-id="${element.id}">Agregar Al Carrito</a>
                     </div>`)          
             });
 
@@ -322,12 +332,45 @@ console.log(bbddJSON)
  */
 
 function realizarCompra(){
-    $('#carrito').html('<div class="permanente"><div class="dinamico"><h3 class="text-center p-3">Ingrese sus datos</h3><p><input type="text" class="input_form u-full-width" placeholder="Nombre completo"></p><p><input type="text" class="input_form u-full-width" placeholder="XXXX-XXXX-XXXX-XXXX"></p><p><input type="text" class="input_form u-full-width" placeholder="Dirección"></p><p><input type="text" class="input_form u-full-width" placeholder="E-mail"></p><p><input type="text" class="input_form u-full-width" placeholder="Pedido especial"></p><a class="button u-full-width boton-compra" onclick="procesarPago()"> Finalizar pago<a class="button u-full-width button-return" onclick="volverCarrito()"> Volver</div></div>');
+    $('#carrito').html('<div class="box-carrito"><div class="formulario"><div class="dinamico"><h3 class="text-center p-3">Ingrese sus datos</h3><p><input type="text" class="input_form u-full-width" placeholder="Nombre completo"></p><p><input type="text" class="input_form u-full-width" placeholder="XXXX-XXXX-XXXX-XXXX"></p><p><input type="text" class="input_form u-full-width" placeholder="Dirección"></p><p><input type="text" class="input_form u-full-width" placeholder="E-mail"></p><p><input type="text" class="input_form u-full-width" placeholder="Pedido especial"></p><a class="button u-full-width boton-compra" onclick="procesarPago()"> Finalizar pago<a class="button u-full-width button-return" onclick="volverCarrito()"> Volver</div></div></div>');
 }
 
 function procesarPago(){
-    $('#carrito').html('<h3 class="text-center p-3">Has contratado los servicios con éxito</h3>');
-    vaciarCarrito();
+    const storageAlmacenado=JSON.parse(localStorage.getItem('datos carrito'));
+    const precioFinalAlmacenado=JSON.parse(localStorage.getItem('precio-final'));
+    console.log(storageAlmacenado);
+    console.log(precioFinalAlmacenado);
+    let arrayStorage=[];
+    
+    storageAlmacenado.forEach( item => {
+        /* console.log(servicio); */
+        limpiarHTML();
+        const {titulo, precio, cantidad} = item
+        
+        console.log(titulo)
+        console.log(precio)
+        console.log(cantidad)
+                
+        const listaProducto=document.createElement('div');
+        listaProducto.classList.add('box-carrito');
+        listaProducto.innerHTML= `<div class="permanente"><div class="dinamico"><p>Servicio: ${titulo} Precio: ${precio} Cantidad ${cantidad}</p><h3 class="text-center p-3">`;  
+        carrito.appendChild(listaProducto);
+        
+
+        /* $('#carrito').html(`<div class="dinamico"><p>Servicio: ${titulo} Precio: ${precio} Cantidad ${cantidad}</p><h3 class="text-center p-3">Has contratado los servicios con éxito</h3><h1 class="text-center p-3">Precio total: €${precioFinal}</h1></div>`); */
+        
+        
+        /* vaciarCarrito(); */
+        
+      /*   console.log(servicio) */
+    });
+
+
+
+    
 
 }
 
+/* [i]
+
+ */
