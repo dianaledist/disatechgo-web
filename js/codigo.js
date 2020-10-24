@@ -1,8 +1,6 @@
 //// Declaración de variables
 
 const carrito=document.querySelector('#carrito');
-const carritoCompleto=document.querySelector('.carrito-completo');
-
 
 const contenedorCarrito=document.querySelector('#lista-carrito tbody');
 const botonCompra=document.querySelector('.boton-compra')
@@ -64,8 +62,7 @@ if (!nombreUser|| !mailUser || !passwordUser) {
     console.log(nombreUser);
     const bienvenida=document.createElement('div');
     bienvenida.classList.add('home_bienvenida');
-    bienvenida.innerHTML= `<h2 class="home-text">Hola ${nombreUser}<h2> <br> <h3 class="home-text">Has ingresado a tu sección privada en <strong>disatechgo</strong>. Esperamos que disfrutes de esta experiencia digital! <br>
-    Descubrí los servicios que tenemos para ofrecerte!</h3>`;  
+    bienvenida.innerHTML= `<h3 class="home-text text-right">Hola ${nombreUser}!<h3>`;  
     welcome.appendChild(bienvenida);
 
     $('.login-user').submit(function(e) {
@@ -340,7 +337,6 @@ function procesarPago(){
     const precioFinalAlmacenado=JSON.parse(localStorage.getItem('precio-final'));
     console.log(storageAlmacenado);
     console.log(precioFinalAlmacenado);
-    let arrayStorage=[];
     
     storageAlmacenado.forEach( item => {
         /* console.log(servicio); */
@@ -352,7 +348,10 @@ function procesarPago(){
         console.log(cantidad)
                 
         const listaProducto=document.createElement('div');
-        listaProducto.classList.add('box-carrito');
+        while(listaProducto.firstChild) {
+            listaProducto.removeChild(listaProducto.firstChild)
+        }
+
         listaProducto.innerHTML= `<div class="permanente"><div class="dinamico"><p>Servicio: ${titulo} Precio: ${precio} Cantidad ${cantidad}</p><h3 class="text-center p-3">`;  
         carrito.appendChild(listaProducto);
         
