@@ -88,3 +88,32 @@
     }
 }
 
+
+
+
+.home_title{
+transform: translate(0px, -200px);
+color: white;
+opacity: 0;
+transition: all 1s ease-in-out;
+}
+
+
+.home_title--active {
+    transform: translate(0px, 0%);
+    opacity: 1;
+}
+
+
+.home_title_subtitle{
+    transform: translate(0px, -200px);
+    color: white;
+    opacity: 0;
+    transition: all 1s ease-in-out;
+    }
+    
+    
+    .home_title_subtitle--active {
+        transform: translate(0px, 0%);
+        opacity: 1;
+    }

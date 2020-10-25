@@ -300,6 +300,36 @@ p {
   }
 }
 
+.home_title {
+  -webkit-transform: translate(0px, -200px);
+          transform: translate(0px, -200px);
+  color: white;
+  opacity: 0;
+  -webkit-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+}
+
+.home_title--active {
+  -webkit-transform: translate(0px, 0%);
+          transform: translate(0px, 0%);
+  opacity: 1;
+}
+
+.home_title_subtitle {
+  -webkit-transform: translate(0px, -200px);
+          transform: translate(0px, -200px);
+  color: white;
+  opacity: 0;
+  -webkit-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+}
+
+.home_title_subtitle--active {
+  -webkit-transform: translate(0px, 0%);
+          transform: translate(0px, 0%);
+  opacity: 1;
+}
+
 .home_boton {
   font-size: 1.5rem !important;
 }
