@@ -175,6 +175,10 @@ p {
   text-align: right;
 }
 
+.formulario_hidden {
+  display: none;
+}
+
 /* .home_description {
     height:90vh;
 } */
