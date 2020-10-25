@@ -179,6 +179,16 @@ p {
   display: none;
 }
 
+@supports ((-o-object-fit: cover) or (object-fit: cover)) {
+  .home_logo_lights img {
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: center center;
+       object-position: center center;
+  }
+}
+
 /* .home_description {
     height:90vh;
 } */

@@ -28,3 +28,11 @@
 .formulario_hidden {
     display: none;
 }
+
+@supports(object-fit: cover){
+    .home_logo_lights img{
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+    }
+}
