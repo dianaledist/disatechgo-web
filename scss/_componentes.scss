@@ -1,6 +1,22 @@
 .home_boton {
   font-size: 1.5rem !important;
 }
+
+.home_intro_button {
+  background: $color-primario !important;
+  border-radius: 50px;
+  padding: 3%;
+  box-sizing: border-box;
+  color: #FFF;
+  font-size: 1.5rem;
+  margin-top: 10%;
+  text-decoration: none;
+  &:hover{
+    color: black;
+    text-decoration: none;
+  }
+}
+
 .boton-compra{
 background: radial-gradient(circle, rgba(28,48,128,1) 0%, rgba(146,23,104,1) 100%) !important;
 margin-bottom:3%;
@@ -105,4 +121,8 @@ input[type="button"].button-primary:focus {
   text-decoration: none;
   color: white;
   font-weight: bold;
+}
+
+.carrito_hidden {
+  display: none;
 }

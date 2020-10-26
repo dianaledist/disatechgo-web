@@ -143,6 +143,10 @@ p {
   color: white !important;
 }
 
+.home_title_subtitle {
+  color: white !important;
+}
+
 #lista-cursos .row {
   margin-bottom: 20px;
 }
@@ -171,8 +175,186 @@ p {
   text-align: right;
 }
 
+.formulario_hidden {
+  display: none;
+}
+
+/* .home_description {
+    height:90vh;
+} */
+.home_intro {
+  padding-top: 5%;
+  padding-bottom: 15%;
+}
+
+.shape_index_circle {
+  background-color: whitesmoke;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  right: 800;
+  z-index: -1;
+  opacity: 0.1;
+}
+
+.shape_index_circle--active {
+  -webkit-animation-name: circleAnimation;
+          animation-name: circleAnimation;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-timing-function: initial;
+          animation-timing-function: initial;
+  border-radius: 300px;
+  opacity: 0.07;
+}
+
+@-webkit-keyframes circleAnimation {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate(1000px);
+            transform: translate(1000px);
+  }
+  100% {
+    opacity: 0.07;
+    -webkit-transform: translate(0%);
+            transform: translate(0%);
+    border-radius: 300px;
+  }
+}
+
+@keyframes circleAnimation {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate(1000px);
+            transform: translate(1000px);
+  }
+  100% {
+    opacity: 0.07;
+    -webkit-transform: translate(0%);
+            transform: translate(0%);
+    border-radius: 300px;
+  }
+}
+
+.home_screen {
+  z-index: -1;
+  padding-top: 5%;
+  padding-bottom: 15%;
+}
+
+.home_screen--active {
+  -webkit-animation-name: screenAnimation;
+          animation-name: screenAnimation;
+  -webkit-animation-duration: 2.5s;
+          animation-duration: 2.5s;
+  -webkit-animation-timing-function: initial;
+          animation-timing-function: initial;
+}
+
+@-webkit-keyframes screenAnimation {
+  0% {
+    opacity: 0.05;
+    -webkit-transform: translate(-100%);
+            transform: translate(-100%);
+  }
+  50% {
+    opacity: 0.3;
+    -webkit-transform: translate(60%);
+            transform: translate(60%);
+  }
+  100% {
+    opacity: 0.7;
+    /*      transform: translate(50%); */
+  }
+}
+
+@keyframes screenAnimation {
+  0% {
+    opacity: 0.05;
+    -webkit-transform: translate(-100%);
+            transform: translate(-100%);
+  }
+  50% {
+    opacity: 0.3;
+    -webkit-transform: translate(60%);
+            transform: translate(60%);
+  }
+  100% {
+    opacity: 0.7;
+    /*      transform: translate(50%); */
+  }
+}
+
+@media (max-width: 540px) {
+  .shape_index_circle {
+    width: 300px;
+    height: 300px;
+  }
+  .home_intro {
+    padding-top: 15%;
+  }
+  .home_screen {
+    padding-top: 15%;
+  }
+}
+
+.home_title {
+  -webkit-transform: translate(0px, -200px);
+          transform: translate(0px, -200px);
+  color: white;
+  opacity: 0;
+  -webkit-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+}
+
+.home_title--active {
+  -webkit-transform: translate(0px, 0%);
+          transform: translate(0px, 0%);
+  opacity: 1;
+}
+
+.home_title_subtitle {
+  -webkit-transform: translate(0px, -200px);
+          transform: translate(0px, -200px);
+  color: white;
+  opacity: 0;
+  z-index: -2;
+  -webkit-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+}
+
+.home_title_subtitle--active {
+  -webkit-transform: translate(0px, 0%);
+          transform: translate(0px, 0%);
+  opacity: 1;
+  z-index: -2;
+}
+
+.home_logo_lights {
+  z-index: 888;
+}
+
 .home_boton {
   font-size: 1.5rem !important;
+}
+
+.home_intro_button {
+  background: #db1ec2 !important;
+  border-radius: 50px;
+  padding: 3%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: #FFF;
+  font-size: 1.5rem;
+  margin-top: 10%;
+  text-decoration: none;
+}
+
+.home_intro_button:hover {
+  color: black;
+  text-decoration: none;
 }
 
 .boton-compra {
@@ -288,6 +470,10 @@ input[type="button"].button-primary:focus {
   text-decoration: none;
   color: white;
   font-weight: bold;
+}
+
+.carrito_hidden {
+  display: none;
 }
 
 * {
