@@ -179,16 +179,6 @@ p {
   display: none;
 }
 
-@supports ((-o-object-fit: cover) or (object-fit: cover)) {
-  .home_logo_lights img {
-    height: 100%;
-    -o-object-fit: cover;
-       object-fit: cover;
-    -o-object-position: center center;
-       object-position: center center;
-  }
-}
-
 /* .home_description {
     height:90vh;
 } */
@@ -330,6 +320,7 @@ p {
           transform: translate(0px, -200px);
   color: white;
   opacity: 0;
+  z-index: -2;
   -webkit-transition: all 1s ease-in-out;
   transition: all 1s ease-in-out;
 }
@@ -338,6 +329,11 @@ p {
   -webkit-transform: translate(0px, 0%);
           transform: translate(0px, 0%);
   opacity: 1;
+  z-index: -2;
+}
+
+.home_logo_lights {
+  z-index: 888;
 }
 
 .home_boton {
@@ -474,6 +470,10 @@ input[type="button"].button-primary:focus {
   text-decoration: none;
   color: white;
   font-weight: bold;
+}
+
+.carrito_hidden {
+  display: none;
 }
 
 * {
