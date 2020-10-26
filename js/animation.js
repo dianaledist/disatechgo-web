@@ -9,6 +9,11 @@ $(document).ready(function()
             scrollTop: $(".home_titles_animation").offset().top
             }, 1000);
     });
+    $(".home_intro_button").click(function() {
+        $('html, body').animate({
+            scrollTop: $(".home_titles_animation").offset().top
+            }, 1000);
+    });
    
 })
 
