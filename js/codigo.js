@@ -61,6 +61,9 @@ if (!nombreUser|| !mailUser || !passwordUser) {
     alert("Ingrese sus datos para una mejor experiencia :D");
       
 } else {
+
+    if(/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i.test(mailUser)){
+    
     localStorage.setItem(nombreUser,mailUser);
     console.log(nombreUser);
     const bienvenida=document.createElement('div');
@@ -75,6 +78,9 @@ if (!nombreUser|| !mailUser || !passwordUser) {
         $('#modalRegisterFor').modal('toggle'); 
         return false;
     });
+    } else {
+        alert("Ingrese los datos en el formato adecuado");
+    }
 }
 }
 
@@ -264,7 +270,7 @@ $(document).ready(function()
                             'height' : $(this).parent().height() + 'px'
                             
                         }).appendTo($('#grilla_servicios').parent());
-                                                      
+                                                         
 
                         var cart = $('#button-animate').offset();
                         $('.card-clone').animate( { top: parseInt(cart.top-$(window).scrollTop()) + 'px', left: cart.left + 'px', 'height': '0px', 'width': '0px' }, 800, function(){
@@ -302,19 +308,18 @@ $(document).ready(function()
     $("#vaciar-carrito").click(function() {
         doBounce($(this),1, '5px',100);   
     });
-
-    $(".icon-arrow").click(function() {
-        $('html, body').animate({
-            scrollTop: $(".icon-arrow").offset().top
-            }, 2000);
-    }
-    );
     
 });
 
 
 function realizarCompra(){
-    $('#carrito').html('<div class="box-carrito"><div class="formulario"><form action="" method="post"><h3 class="text-center p-3">Ingrese sus datos</h3><p><input type="text" class="input_form u-full-width form_name" placeholder="Nombre completo"></p><p><input type="text" class="input_form u-full-width form_card" placeholder="XXXX-XXXX-XXXX-XXXX"></p><p><input type="text" class="input_form u-full-width form_direccion" placeholder="Dirección"></p><p><input type="text" class="input_form u-full-width form_email" placeholder="E-mail"></p><p><input type="text" class="input_form u-full-width form_observ" placeholder="Pedido especial"></p><a class="button u-full-width boton-compra" onclick="procesarPago()"> Finalizar pago</form></div></div>');
+    const precioFinalAlmacenado=JSON.parse(localStorage.getItem('precio-final'));
+    if (precioFinalAlmacenado!=0){
+    $('#carrito').html('<div class="box-carrito"><div class="formulario"><form action="" method="post"><h3 class="text-center p-3">Ingrese sus datos</h3><p><input type="text" class="input_form u-full-width form_name" placeholder="Nombre completo"></p><p><input type="text" class="input_form u-full-width form_card" placeholder="XXXX-XXXX-XXXX-XXXX"></p><p><input type="text" class="input_form u-full-width form_direccion" placeholder="Dirección"></p><p><input type="email" class="input_form u-full-width form_email" placeholder="E-mail"></p><p><input type="text" class="input_form u-full-width form_observ" placeholder="Pedido especial"></p><a class="button u-full-width boton-compra" onclick="procesarPago()"> Finalizar pago</form></div></div>');
+    }
+    else {
+        alert("Para continuar la compra, hay que elegir algún servicio");
+    }
 
 }
 
@@ -333,9 +338,9 @@ function procesarPago(){
 
 
     
-if (!form_name || !form_card || !form_direccion || !form_email ) {
+if (!form_name || !form_card || !form_direccion || !form_email) {
 
-    alert("Ingrese sus datos para una mejor experiencia :D");
+    alert("Ingrese sus datos correctamente para una mejor experiencia :D");
       
 } 
 else {
