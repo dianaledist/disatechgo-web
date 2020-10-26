@@ -264,20 +264,7 @@ $(document).ready(function()
                             'height' : $(this).parent().height() + 'px'
                             
                         }).appendTo($('#grilla_servicios').parent());
-                                           
-                        /* $('#button-animate').delay(800).css("background-color", "blue"); */
-
-                        /* $('#button-animate').toggle(function () {
-                            $("#button-animate").css({
-                                "background-color": "yellow",
-                                "font-weight": "bolder"
-                            },500)
-                        }, function () {
-                            $("#button-animate").css({
-                                "background-color": "white",
-                                "font-weight": "bolder"
-                            },500)
-                        }); */                  
+                                                      
 
                         var cart = $('#button-animate').offset();
                         $('.card-clone').animate( { top: parseInt(cart.top-$(window).scrollTop()) + 'px', left: cart.left + 'px', 'height': '0px', 'width': '0px' }, 800, function(){
@@ -315,17 +302,21 @@ $(document).ready(function()
     $("#vaciar-carrito").click(function() {
         doBounce($(this),1, '5px',100);   
     });
+
+    $(".icon-arrow").click(function() {
+        $('html, body').animate({
+            scrollTop: $(".icon-arrow").offset().top
+            }, 2000);
+    }
+    );
     
 });
 
 
 function realizarCompra(){
-    $('#carrito').html('<div class="box-carrito"><div class="formulario"><h3 class="text-center p-3">Ingrese sus datos</h3><p><input type="text" class="input_form u-full-width form_name" placeholder="Nombre completo"></p><p><input type="text" class="input_form u-full-width form_card" placeholder="XXXX-XXXX-XXXX-XXXX"></p><p><input type="text" class="input_form u-full-width form_direccion" placeholder="Dirección"></p><p><input type="text" class="input_form u-full-width form_email" placeholder="E-mail"></p><p><input type="text" class="input_form u-full-width form_observ" placeholder="Pedido especial"></p><a class="button u-full-width boton-compra" onclick="procesarPago()"> Finalizar pago</div></div>');
+    $('#carrito').html('<div class="box-carrito"><div class="formulario"><form action="" method="post"><h3 class="text-center p-3">Ingrese sus datos</h3><p><input type="text" class="input_form u-full-width form_name" placeholder="Nombre completo"></p><p><input type="text" class="input_form u-full-width form_card" placeholder="XXXX-XXXX-XXXX-XXXX"></p><p><input type="text" class="input_form u-full-width form_direccion" placeholder="Dirección"></p><p><input type="text" class="input_form u-full-width form_email" placeholder="E-mail"></p><p><input type="text" class="input_form u-full-width form_observ" placeholder="Pedido especial"></p><a class="button u-full-width boton-compra" onclick="procesarPago()"> Finalizar pago</form></div></div>');
 
 }
-
-
-
 
 function procesarPago(){
     const storageAlmacenado=JSON.parse(localStorage.getItem('datos carrito'));
@@ -340,12 +331,16 @@ function procesarPago(){
     const form_email=$('.form_email').val();
     const form_observ=$('.form_observ').val();
 
+
     
-if (!form_name || !form_card || !form_direccion || !form_email) {
+if (!form_name || !form_card || !form_direccion || !form_email ) {
 
     alert("Ingrese sus datos para una mejor experiencia :D");
       
-} else {
+} 
+else {
+
+    if (form_card==form_card.match(/^4\d{3}-?\d{4}-?\d{4}-?\d{4}$/) || form_card==form_card.match(/^5[1-5]\d{2}-?\d{4}-?\d{4}-?\d{4}$/)) {
     const precioFinalPantalla0=document.createElement('div');
     precioFinalPantalla0.classList.add('box-carrito');
     precioFinalPantalla0.innerHTML= `
@@ -373,8 +368,12 @@ if (!form_name || !form_card || !form_direccion || !form_email) {
 
     const precioFinalPantalla=document.createElement('div');
     precioFinalPantalla.classList.add('box-carrito');
-    precioFinalPantalla.innerHTML= `<h3 class="text-center p-3">Precio total: <strong>€${precioFinalAlmacenado}</strong></h3><a class="button u-full-width" onclick="refresh()"> Aceptar`;
+    precioFinalPantalla.innerHTML= `<h3 class="text-center p-3">Precio total: <strong>€${precioFinalAlmacenado}</strong></h3><a class="button u-full-width login-user" onclick="refresh()">Aceptar</a><h6 class="text-center p-3">Gracias ${form_name}!!</h6>`;
     carrito.appendChild(precioFinalPantalla);
+    }
+    else {
+        alert("Ingrese un número de tarjeta válido");
+    }
 } 
        
 }

@@ -3,6 +3,12 @@ $(document).ready(function()
     $(".shape_index_circle").addClass('shape_index_circle--active');
     $(".home_screen").addClass('home_screen--active');
     $(".home_title").addClass('home_title--active');
+
+    $(".icon-arrow").click(function() {
+        $('html, body').animate({
+            scrollTop: $(".home_titles_animation").offset().top
+            }, 1000);
+    });
    
 })
 
